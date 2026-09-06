@@ -21,8 +21,7 @@ nav:
   - Development:
       - Contributing: CONTRIBUTING.md
       - Code of Conduct: CODE_OF_CONDUCT.md
-  - Organization:
-      - About: about.md
+  - About: about.md
 
 # Theme
 theme:
