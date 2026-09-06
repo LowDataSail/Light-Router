@@ -61,8 +61,6 @@ We are grateful to all our contributors! See [CONTRIBUTORS.md](CONTRIBUTORS.md) 
 - **September 6:** Launched Light Router project
 - **September 6:** Created LowDataSail organization
 - **September 6:** Published initial documentation
-- **September 6:** Secured Infoclimat partnership
-- **September 6:** Secured Freewinds.world access
 
 ### **2025**
 - **May:** Began research on low-data routing
@@ -78,14 +76,14 @@ We are grateful to all our contributors! See [CONTRIBUTORS.md](CONTRIBUTORS.md) 
 ### **Infoclimat**
 - **Role:** Primary weather data provider
 - **Website:** [https://www.infoclimat.fr](https://www.infoclimat.fr)
-- **Status:** ✅ Active Partnership
+- **Status:** Planned
 - **Description:** Provides high-quality GRIB2 weather data, wave models, and real-time forecasts
 
 ### **Freewinds.world**
 - **Role:** Primary testing and showcase platform
 - **Website:** [https://freewinds.world](https://freewinds.world)
-- **Status:** ✅ Active Partnership
-- **Description:** Provides virtual sailing platform for Golden Globe Race 2026
+- **Status:** Planned
+- **Description:** Provides virtual sailing platform for testing and validation
 
 ---
 

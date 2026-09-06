@@ -244,10 +244,10 @@ Existing tools have **limited extreme event prediction**:
 **Result:** Sailors are **blind to many dangerous events**
 
 #### **The Opportunity**
-- **First to market** with rogue wave and microburst prediction
-- **Superior accuracy** for storm and iceberg detection
-- **Early warning** systems for all event types
-- **Integration** with routing for automatic avoidance
+- Potential first with rogue wave and microburst prediction
+- Improved accuracy for storm and iceberg detection
+- Early warning systems for all event types
+- Integration with routing for automatic avoidance
 
 ---
 
@@ -285,7 +285,7 @@ Existing tools have **limited extreme event prediction**:
 - Pattern recognition in wave height data
 - Integration with buoy and satellite data
 
-**Status:** 🔄 **In Development** *(First to market)*
+**Status:** 🔄 **In Development**
 
 ---
 
@@ -323,7 +323,7 @@ Existing tools have **limited extreme event prediction**:
 - Doppler radar data (where available)
 - Integration with local sensors
 
-**Status:** ⏳ **Planned** *(First to market)*
+**Status:** ⏳ **Planned**
 
 ---
 
@@ -373,22 +373,22 @@ Microburst       | 95%                 | 3%                  | 2-5 min
 
 | **Feature** | **Impact** | **Differentiation** |
 |-------------|------------|---------------------|
-| Low Data Routing | **100-1000x cost savings** | ✅ **Unique** |
-| Extreme Event Prediction | **Superior safety** | ✅ **Unique** |
-| AI-Native Design | **Better performance** | ✅ **Unique** |
-| Edge Optimization | **Runs anywhere** | ✅ **Unique** |
-| Open Source | **Transparent, extensible** | ⚠️ **Rare** |
+| Low Data Routing | 100-1000x cost savings | Potential unique |
+| Extreme Event Prediction | Superior safety | Potential unique |
+| AI-Native Design | Better performance | Unique |
+| Edge Optimization | Runs anywhere | Unique |
+| Open Source | Transparent, extensible | Rare |
 
 ### **Competitive Advantage**
 
 **No other tool** combines:
-- ✅ **Ultra-low data usage** (<10 KB/day)
-- ✅ **AI-powered routing**
-- ✅ **Extreme event prediction**
-- ✅ **Edge-optimized** (Raspberry Pi, <1 Wh/update)
-- ✅ **Open source**
+- Ultra-low data usage (<10 KB/day)
+- AI-powered routing
+- Extreme event prediction
+- Edge-optimized (Raspberry Pi, <1 Wh/update)
+- Open source
 
-**Result:** **First and only** solution in this market position
+**Result:** Potential unique solution in this market position
 
 ---
 

@@ -123,9 +123,9 @@ Light-Router/
 
 | **Partner** | **Role** | **Status** |
 |-------------|----------|------------|
-| [Infoclimat](https://www.infoclimat.fr) | Primary weather data provider | ✅ Secured |
-| [Freewinds.world](https://freewinds.world) | Primary testing and showcase platform | ✅ Secured |
-| [qtVlm](https://www.virtual-winds.org/) | Open-source integration | 🔄 Planned |
+| [Infoclimat](https://www.infoclimat.fr) | Primary weather data provider | Planned |
+| [Freewinds.world](https://freewinds.world) | Primary testing and showcase platform | Planned |
+| [qtVlm](https://www.virtual-winds.org/) | Open-source integration | Planned |
 
 ---
 

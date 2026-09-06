@@ -220,12 +220,12 @@ SF→Hawaii          | +2%         | Baseline   | +7%     | +2%   | +0%
 
 **Expected Results:**
 ```
-Race               | Winner Time | Our Time | Difference | Would Win?
---------------------|-------------|----------|------------|-----------
-GGR 2022           | 203d 0h    | 205d 12h | +1.1%     | ❌ No
-Vendée Globe 2020 | 80d 3h     | 81d 6h   | +1.4%     | ❌ No
-The Ocean Race 2023| 120d 0h    | 121d 12h | +1.0%     | ❌ No
-Mini Transat 2023 | 15d 0h     | 15d 6h   | +0.25%    | ⚠️ Tie
+Race               | Winner Time | Our Time | Difference
+--------------------|-------------|----------|------------
+GGR 2022           | 203d 0h    | 205d 12h | +1.1%
+Vendée Globe 2020 | 80d 3h     | 81d 6h   | +1.4%
+The Ocean Race 2023| 120d 0h    | 121d 12h | +1.0%
+Mini Transat 2023 | 15d 0h     | 15d 6h   | +0.25%
 ```
 
 #### **C. Synthetic Scenarios**
@@ -374,7 +374,7 @@ Lead Time           | 5-10 min | 0 min         | +5-10 min
 Spatial Accuracy    | <1 nm  | N/A           | N/A
 ```
 
-**Note:** Rogue wave prediction is **currently impossible** with standard models. Our AI approach aims to be **first to market** with this capability.
+**Note:** Rogue wave prediction is currently impossible with standard models. Our AI approach aims to develop this capability.
 
 #### **C. Iceberg Detection**
 **Objective:** Validate our ability to detect and avoid icebergs.

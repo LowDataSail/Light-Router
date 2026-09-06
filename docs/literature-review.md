@@ -192,9 +192,9 @@ Our Goal: <10 KB/day (200x+ reduction)
 |---------------|-----------------------|--------------------|------------------|-----------------|-------------|
 | Tropical Storms | ✅ Good (forecast models) | ⚠️ Improve accuracy | GRIB + Satellite | Forecast Error Modeling | **P0** |
 | Extra-Tropical Storms | ✅ Good | ⚠️ Improve lead time | GRIB + Buoy Data | Time Series Forecasting | **P0** |
-| Rogue Waves | ❌ None | ✅ **First to market** | Wave Spectra | Anomaly Detection | **P1** |
-| Icebergs | ❌ None (except StormGeo) | ✅ **First to market** | AIS + Satellite | Object Detection | **P1** |
-| Microbursts | ❌ None | ✅ **First to market** | High-res Wind Data | Pattern Recognition | **P2** |
+| Rogue Waves | ❌ None | ✅ Develop capability | Wave Spectra | Anomaly Detection | **P1** |
+| Icebergs | ❌ None (except StormGeo) | ✅ Develop capability | AIS + Satellite | Object Detection | **P1** |
+| Microbursts | ❌ None | ✅ Develop capability | High-res Wind Data | Pattern Recognition | **P2** |
 | Sudden Wind Shifts | ⚠️ Basic | ✅ Improve prediction | GRIB + Local Sensors | Time Series + Spatial | **P1** |
 | Shallow Water | ✅ Good | ⚠️ Improve with AI | Bathymetry + GRIB | Risk Modeling | **P2** |
 
@@ -253,7 +253,7 @@ Our Goal: <10 KB/day (200x+ reduction)
                     LOW          HIGH
 ```
 
-**Our Position:** **High data efficiency + High extreme event prediction** = **Unique market position**
+**Our Position:** High data efficiency + High extreme event prediction
 
 ### **2. Differentiators**
 
@@ -351,8 +351,8 @@ Our Goal: <10 KB/day (200x+ reduction)
 ### **3. Partnership Strategy**
 
 #### **Tier 1: Critical (0-3 months)**
-- **Infoclimat** – Weather data provider (✅ Secured)
-- **Freewinds.world** – Testing platform (✅ Secured)
+- **Infoclimat** – Weather data provider (Planned)
+- **Freewinds.world** – Testing platform (Planned)
 - **qtVlm** – Open-source integration
 
 #### **Tier 2: Strategic (3-6 months)**
