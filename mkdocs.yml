@@ -1,0 +1,149 @@
+site_name: Light Router
+site_description: Ultra-low data AI sailing router with extreme event prediction for circumnavigation
+site_author: LowDataSail
+site_url: https://lowdatasail.github.io/Light-Router
+
+# Repository
+repo_name: LowDataSail/Light-Router
+repo_url: https://github.com/LowDataSail/Light-Router
+edit_uri: edit/master/docs/
+
+# Navigation
+nav:
+  - Home: index.md
+  - Project:
+      - Overview: PROJECT_DESCRIPTION.md
+      - Objectives: objectives.md
+  - Documentation:
+      - Literature Review: literature-review.md
+      - Benchmarking: benchmarking.md
+      - Market Positioning: market-positioning.md
+  - Development:
+      - Contributing: CONTRIBUTING.md
+      - Code of Conduct: CODE_OF_CONDUCT.md
+  - Organization:
+      - About: about.md
+
+# Theme
+theme:
+  name: material
+  language: en
+  palette:
+    # Primary colors
+    primary:
+      main: '#1a73e8'
+      light: '#6ec6ff'
+      dark: '#0d47a1'
+    # Accent colors
+    accent:
+      main: '#ff5722'
+      light: '#ff8a50'
+      dark: '#c41c00'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  features:
+    - navigation.top
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - header.autohide
+  favicon: assets/images/favicon.ico
+  logo: assets/images/logo.png
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: LowDataSail
+      repo: Light-Router
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+      separator: '[\[\],\s]+'
+  - git-revision-date-localized:
+      enabled: true
+      type: timeago
+      timezone: UTC
+  - git-authors:
+      enabled: true
+  # PDF export disabled (requires system libraries)
+  # - with-pdf:
+  #     enabled: true
+  #     author: LowDataSail
+  #     copyright: Copyright &copy; 2026 LowDataSail
+  #     cover: true
+  #     cover_title: Light Router Documentation
+  #     cover_subtitle: Ultra-low data AI sailing router
+  #     output_path: pdf/Light-Router-Documentation.pdf
+
+# Extra CSS/JS
+extra_css:
+  - assets/css/custom.css
+
+extra_javascript:
+  - assets/js/custom.js
+
+# Social
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/LowDataSail
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/LowDataSail
+    - icon: fontawesome/solid/envelope
+      link: mailto:contact@lowdatasail.org
+
+# Google Analytics
+# google_analytics:
+#   - UA-XXXXXXXX-X
+#   - auto
+
+# Copyright
+copyright: |
+  &copy; 2026 <a href="https://github.com/LowDataSail" target="_blank" rel="noopener">LowDataSail</a> |
+  <a href="https://github.com/LowDataSail/Light-Router/blob/master/LICENSE" target="_blank" rel="noopener">MIT License</a>

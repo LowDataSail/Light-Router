@@ -83,3 +83,9 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+site/
+*.html
+*.css
+*.js
+*.min.js
+*.min.css

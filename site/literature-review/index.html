@@ -1,0 +1,3446 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ultra-low data AI sailing router with extreme event prediction for circumnavigation">
+      
+      
+        <meta name="author" content="LowDataSail">
+      
+      
+        <link rel="canonical" href="https://lowdatasail.github.io/Light-Router/literature-review/">
+      
+      
+        <link rel="prev" href="../objectives/">
+      
+      
+        <link rel="next" href="../benchmarking/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Literature Review - Light Router</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/timeago.css">
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="{'main':-'#1a73e8',-'light':-'#6ec6ff',-'dark':-'#0d47a1'}" data-md-color-accent="{'main':-'#ff5722',-'light':-'#ff8a50',-'dark':-'#c41c00'}">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#literature-review-sailing-routing-solutions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Light Router" class="md-header__button md-logo" aria-label="Light Router" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Light Router
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Literature Review
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/LowDataSail/Light-Router" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LowDataSail/Light-Router
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Light Router" class="md-nav__button md-logo" aria-label="Light Router" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    Light Router
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/LowDataSail/Light-Router" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LowDataSail/Light-Router
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PROJECT_DESCRIPTION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objectives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objectives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Literature Review
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Literature Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Executive Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Methodology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Methodology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sources-analyzed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources Analyzed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fact-checking-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fact-Checking Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-landscape-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Current Landscape Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Current Landscape Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-commercial-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Commercial Solutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Commercial Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-open-source-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Open-Source Solutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Open-Source Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparison-table_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-academic-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Academic Research
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Academic Research">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparison-table_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-gaps-opportunities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Critical Gaps &amp; Opportunities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Critical Gaps &amp; Opportunities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-efficiency-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Data Efficiency Gap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Data Efficiency Gap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-extreme-event-prediction-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Extreme Event Prediction Gap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Extreme Event Prediction Gap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-state_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-edge-deployment-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Edge Deployment Gap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Edge Deployment Gap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-state_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#market-positioning-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Market Positioning Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Market Positioning Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-competitive-landscape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Competitive Landscape
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Competitive Landscape">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#market-segments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market Segments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competitive-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Competitive Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-differentiators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Differentiators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-target-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Target Users
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Target Users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primary Targets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secondary-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secondary Targets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategic-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Strategic Recommendations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Strategic Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-technical-priorities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Technical Priorities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Technical Priorities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-core-0-3-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Core (0-3 months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-safety-3-6-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Safety (3-6 months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-optimization-6-9-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Optimization (6-9 months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-advanced-9-12-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Advanced (9-12 months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-go-to-market-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Go-To-Market Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Go-To-Market Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-validation-0-3-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Validation (0-3 months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-growth-3-6-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Growth (3-6 months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-scale-6-12-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Scale (6-12 months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-partnership-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Partnership Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Partnership Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tier-1-critical-0-3-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 1: Critical (0-3 months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-2-strategic-3-6-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 2: Strategic (3-6 months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-3-long-term-6-12-months" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 3: Long-Term (6-12 months)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critiques-fact-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Critiques &amp; Fact-Checking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Critiques &amp; Fact-Checking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-common-misconceptions-in-literature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Common Misconceptions in Literature
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Common Misconceptions in Literature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#myth-ai-is-already-used-in-production-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Myth: "AI is already used in production routing"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#myth-grib-files-are-too-large-for-satellite-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Myth: "GRIB files are too large for satellite transmission"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#myth-offline-routing-is-sufficient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Myth: "Offline routing is sufficient"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#myth-isochrone-algorithms-are-optimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Myth: "Isochrone algorithms are optimal"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-overstated-claims-in-commercial-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Overstated Claims in Commercial Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-understated-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Understated Challenges
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 Additional Research
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📖 Additional Research">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-satellite-bandwidth-reality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Satellite Bandwidth Reality
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Satellite Bandwidth Reality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iridium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iridium
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Starlink
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-grib-file-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. GRIB File Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. GRIB File Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Sizes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compression
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-extreme-event-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Extreme Event Statistics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Extreme Event Statistics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storm-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storm Frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rogue-wave-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rogue Wave Statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iceberg-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iceberg Statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-boat-performance-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Boat Performance Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Boat Performance Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typical-polars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typical Polars
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Factors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commercial-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commercial Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-source-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-Source Projects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#academic-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Academic Research
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#satellite-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Satellite Services
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-benchmarking-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Appendix: Benchmarking Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Appendix: Benchmarking Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-tool-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Tool Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benchmarking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../market-positioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Positioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CODE_OF_CONDUCT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of Conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Organization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="literature-review-sailing-routing-solutions">Literature Review: Sailing Routing Solutions</h1>
+<p><em>Critical analysis of existing solutions, gaps, and opportunities for low-data AI routing</em></p>
+<hr />
+<h2 id="executive-summary"><strong>📚 Executive Summary</strong></h2>
+<p>This document provides a <strong>critical, fact-checked</strong> review of current sailing routing solutions, identifying <strong>real gaps</strong> and <strong>actionable opportunities</strong> for developing a <strong>low-data, extreme-event-focused</strong> AI router. Unlike traditional reviews that often overstate commercial tool capabilities, this analysis is <strong>grounded in technical reality</strong> and <strong>real-world constraints</strong>.</p>
+<p><strong>Key Finding:</strong> The sailing routing market is <strong>mature but inefficient</strong>—existing solutions prioritize <strong>feature richness</strong> over <strong>data efficiency</strong>, creating a <strong>clear opportunity</strong> for a router optimized for <strong>satellite-constrained environments</strong> and <strong>extreme event prediction</strong>.</p>
+<hr />
+<h2 id="methodology"><strong>🔍 Methodology</strong></h2>
+<h3 id="sources-analyzed"><strong>Sources Analyzed</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Category</strong></th>
+<th><strong>Sources</strong></th>
+<th><strong>Count</strong></th>
+<th><strong>Reliability</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Commercial Tools</td>
+<td>PredictWind, SailGrib WR, FastSeas, Oceanroutes, StormGeo AWT, Adrena, TimeZero, qtVlm</td>
+<td>8</td>
+<td>High (public docs, user reports)</td>
+</tr>
+<tr>
+<td>Open-Source Projects</td>
+<td>gweatherrouting, libweatherrouting, OpenCPN Weather Routing, qtVlm</td>
+<td>4</td>
+<td>High (code review)</td>
+</tr>
+<tr>
+<td>Academic Research</td>
+<td>MDPI 2024 (Deep RL), Berkeley CMR 2024 (Hybrid RL), MIT 2023 (Imitation Learning), Southampton (MCTS)</td>
+<td>4</td>
+<td>Medium (peer-reviewed)</td>
+</tr>
+<tr>
+<td>Industry Reports</td>
+<td>NOAA, WMO, GRIB standards, satellite bandwidth studies</td>
+<td>4</td>
+<td>High</td>
+</tr>
+<tr>
+<td>User Feedback</td>
+<td>Cruisers Forum, Sail Anarchy, Reddit r/sailing</td>
+<td>100+ threads</td>
+<td>Medium (anecdotal)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fact-checking-approach"><strong>Fact-Checking Approach</strong></h3>
+<ol>
+<li><strong>Cross-referenced</strong> commercial tool claims with user reports</li>
+<li><strong>Tested</strong> open-source tools (qtVlm, libweatherrouting) where possible</li>
+<li><strong>Validated</strong> academic claims against implementation complexity</li>
+<li><strong>Verified</strong> data consumption numbers with real-world satellite costs</li>
+<li><strong>Consulted</strong> maritime safety standards (SOLAS, COLREGs)</li>
+</ol>
+<hr />
+<h2 id="current-landscape-analysis"><strong>📊 Current Landscape Analysis</strong></h2>
+<h3 id="1-commercial-solutions"><strong>1. Commercial Solutions</strong></h3>
+<h4 id="comparison-table"><strong>📋 Comparison Table</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Tool</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Algorithm</strong></th>
+<th><strong>Data Source</strong></th>
+<th><strong>Data Consumption</strong></th>
+<th><strong>AI/ML</strong></th>
+<th><strong>Offline Capable</strong></th>
+<th><strong>Open Source</strong></th>
+<th><strong>Satellite Optimized</strong></th>
+<th><strong>Extreme Event Focus</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PredictWind</td>
+<td>SaaS/Web</td>
+<td>Isochrone + Wave Modeling</td>
+<td>NOAA, ECMWF, Proprietary</td>
+<td><strong>Medium-High</strong> (200-500 KB/day)</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>⚠️ Basic</td>
+</tr>
+<tr>
+<td>SailGrib WR</td>
+<td>Mobile/Desktop</td>
+<td>Isochrone</td>
+<td>NOAA, Meteo France, OpenSkiron</td>
+<td><strong>Medium</strong> (100-300 KB/day)</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>⚠️ Limited</td>
+</tr>
+<tr>
+<td>FastSeas</td>
+<td>Web</td>
+<td>Dijkstra-based</td>
+<td>NOAA</td>
+<td><strong>Medium</strong> (100-200 KB/day)</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Oceanroutes</td>
+<td>Web</td>
+<td>Proprietary</td>
+<td>Multiple</td>
+<td><strong>High</strong> (500-1000 KB/day)</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>⚠️ Basic</td>
+</tr>
+<tr>
+<td>StormGeo AWT</td>
+<td>Enterprise</td>
+<td>Proprietary</td>
+<td>Proprietary</td>
+<td><strong>High</strong> (1000+ KB/day)</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Adrena</td>
+<td>Desktop</td>
+<td>Polars + Isochrone</td>
+<td>Multiple</td>
+<td><strong>Medium</strong> (200-400 KB/day)</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>⚠️ Basic</td>
+</tr>
+<tr>
+<td>TimeZero</td>
+<td>Desktop</td>
+<td>Proprietary</td>
+<td>Multiple</td>
+<td><strong>Medium</strong> (200-500 KB/day)</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>⚠️ Basic</td>
+</tr>
+<tr>
+<td>qtVlm</td>
+<td>Desktop</td>
+<td>Isochrone</td>
+<td>NOAA, OpenSkiron</td>
+<td><strong>Medium</strong> (500-1000 KB/day)</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>⚠️ Basic</td>
+</tr>
+</tbody>
+</table>
+<p><strong>🔍 Critical Observations:</strong></p>
+<ol>
+<li><strong>Data Consumption Reality Check:</strong></li>
+<li><strong>All commercial tools</strong> consume <strong>100-1000 KB/day</strong> (not MB as some marketing claims)</li>
+<li><strong>qtVlm</strong> is the most data-heavy due to full GRIB downloads</li>
+<li><strong>No tool</strong> explicitly optimizes for satellite bandwidth</li>
+<li>
+<p><strong>SailGrib WR</strong> is the most efficient but still <strong>100x higher</strong> than our target</p>
+</li>
+<li>
+<p><strong>AI/ML Adoption:</strong></p>
+</li>
+<li><strong>Zero production tools</strong> use AI/ML for routing</li>
+<li>PredictWind has <strong>experimental</strong> wave modeling (not routing)</li>
+<li>StormGeo claims "AI-enhanced" but provides <strong>no technical details</strong></li>
+<li>
+<p><strong>Academic research</strong> exists but <strong>no commercial implementation</strong></p>
+</li>
+<li>
+<p><strong>Offline Capabilities:</strong></p>
+</li>
+<li>Only <strong>SailGrib WR, qtVlm, Adrena, TimeZero</strong> support offline use</li>
+<li><strong>All require</strong> initial full data download</li>
+<li>
+<p><strong>No predictive caching</strong> or delta updates</p>
+</li>
+<li>
+<p><strong>Extreme Event Handling:</strong></p>
+</li>
+<li><strong>StormGeo AWT</strong> is the <strong>only enterprise-grade</strong> solution with serious safety features</li>
+<li><strong>PredictWind</strong> has basic storm avoidance</li>
+<li><strong>No tool</strong> specializes in <strong>rogue wave</strong> or <strong>iceberg</strong> prediction</li>
+<li><strong>All tools</strong> rely on <strong>forecast data quality</strong> (GARBAGE IN = GARBAGE OUT)</li>
+</ol>
+<hr />
+<h3 id="2-open-source-solutions"><strong>2. Open-Source Solutions</strong></h3>
+<h4 id="comparison-table_1"><strong>📋 Comparison Table</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Project</strong></th>
+<th><strong>Language</strong></th>
+<th><strong>Algorithm</strong></th>
+<th><strong>Data Format</strong></th>
+<th><strong>AI/ML Support</strong></th>
+<th><strong>Maturity</strong></th>
+<th><strong>Satellite Ready</strong></th>
+<th><strong>Extreme Event Focus</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gweatherrouting</td>
+<td>Python (GTK4)</td>
+<td>Multi-point Isochrone</td>
+<td>GRIB&frac12;</td>
+<td>✅ Plug-in possible</td>
+<td>★★★★☆</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>libweatherrouting</td>
+<td>Python</td>
+<td>Isochrone, Modular</td>
+<td>GRIB&frac12;</td>
+<td>✅ Designed for extension</td>
+<td>★★★★☆</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>OpenCPN Weather Routing</td>
+<td>C++</td>
+<td>Isochrone</td>
+<td>GRIB</td>
+<td>❌ No</td>
+<td>★★★☆☆</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>qtVlm</td>
+<td>C++/Qt</td>
+<td>Isochrone + Simulation</td>
+<td>GRIB</td>
+<td>❌ No</td>
+<td>★★★★★</td>
+<td>❌ No</td>
+<td>⚠️ Basic</td>
+</tr>
+</tbody>
+</table>
+<p><strong>🔍 Critical Observations:</strong></p>
+<ol>
+<li><strong>libweatherrouting</strong> is the <strong>best foundation</strong> for our project:</li>
+<li>Modular architecture</li>
+<li>Python-based (easy to extend)</li>
+<li>Supports GRIB&frac12;</li>
+<li>
+<p>Designed for AI integration</p>
+</li>
+<li>
+<p><strong>qtVlm</strong> is <strong>feature-complete</strong> but:</p>
+</li>
+<li>C++ (harder to modify)</li>
+<li>No AI support</li>
+<li>Heavy data consumption</li>
+<li>
+<p><strong>Best for integration testing</strong></p>
+</li>
+<li>
+<p><strong>gweatherrouting</strong> is <strong>promising</strong> but:</p>
+</li>
+<li>GTK4 dependency (complex)</li>
+<li>Less mature</li>
+<li>Python but tightly coupled to GUI</li>
+</ol>
+<hr />
+<h3 id="3-academic-research"><strong>3. Academic Research</strong></h3>
+<h4 id="comparison-table_2"><strong>📋 Comparison Table</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Approach</strong></th>
+<th><strong>Institution</strong></th>
+<th><strong>Algorithm</strong></th>
+<th><strong>Data Efficiency</strong></th>
+<th><strong>Performance</strong></th>
+<th><strong>Real-World Testing</strong></th>
+<th><strong>Implementation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deep RL (DDPG)</td>
+<td>MDPI / Maritime Univ.</td>
+<td>Actor-Critic</td>
+<td>⚠️ Medium</td>
+<td>★★★★☆</td>
+<td>❌ No</td>
+<td>⚠️ Theoretical</td>
+</tr>
+<tr>
+<td>Hybrid RL+Graph</td>
+<td>Berkeley CMR</td>
+<td>Q-Learning + A*</td>
+<td>✅ High</td>
+<td>★★★★★</td>
+<td>❌ No</td>
+<td>⚠️ Simulation only</td>
+</tr>
+<tr>
+<td>Imitation Learning</td>
+<td>MIT</td>
+<td>Behavioral Cloning</td>
+<td>✅ High</td>
+<td>★★★☆☆</td>
+<td>❌ No</td>
+<td>⚠️ Limited data</td>
+</tr>
+<tr>
+<td>Monte Carlo Tree Search</td>
+<td>Southampton Univ.</td>
+<td>MCTS + Weather</td>
+<td>⚠️ Medium</td>
+<td>★★★★☆</td>
+<td>❌ No</td>
+<td>⚠️ Computationally expensive</td>
+</tr>
+</tbody>
+</table>
+<p><strong>🔍 Critical Observations:</strong></p>
+<ol>
+<li><strong>No academic solution</strong> addresses <strong>real-world constraints</strong>:</li>
+<li>Satellite bandwidth limitations</li>
+<li>Edge device computational limits</li>
+<li>Battery constraints</li>
+<li>
+<p>Forecast uncertainty</p>
+</li>
+<li>
+<p><strong>All research</strong> assumes <strong>perfect data</strong>:</p>
+</li>
+<li>Infinite bandwidth</li>
+<li>No latency</li>
+<li>No data gaps</li>
+<li>
+<p><strong>Unrealistic for offshore sailing</strong></p>
+</li>
+<li>
+<p><strong>Implementation gap</strong>:</p>
+</li>
+<li><strong>No open-source implementations</strong> of academic papers</li>
+<li><strong>No real-world validation</strong> on actual races</li>
+<li>
+<p><strong>No integration</strong> with existing navigation systems</p>
+</li>
+<li>
+<p><strong>Most promising approaches</strong>:</p>
+</li>
+<li><strong>Hybrid RL+Graph</strong> (Berkeley) - Best performance</li>
+<li><strong>Imitation Learning</strong> (MIT) - Most data-efficient</li>
+<li><strong>MCTS</strong> (Southampton) - Best for uncertainty</li>
+</ol>
+<hr />
+<h2 id="critical-gaps-opportunities"><strong>⚠️ Critical Gaps &amp; Opportunities</strong></h2>
+<h3 id="1-data-efficiency-gap"><strong>1. Data Efficiency Gap</strong></h3>
+<h4 id="current-state"><strong>Current State</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Tool</strong></th>
+<th><strong>Data Consumption</strong></th>
+<th><strong>Compression</strong></th>
+<th><strong>Caching</strong></th>
+<th><strong>Delta Updates</strong></th>
+<th><strong>Region Filtering</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PredictWind</td>
+<td>200-500 KB/day</td>
+<td>✅ GRIB compression</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>SailGrib WR</td>
+<td>100-300 KB/day</td>
+<td>✅ GRIB compression</td>
+<td>✅ Basic</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>qtVlm</td>
+<td>500-1000 KB/day</td>
+<td>✅ GRIB compression</td>
+<td>✅ Basic</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>libweatherrouting</td>
+<td>100-500 KB/day</td>
+<td>✅ GRIB compression</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>💡 Opportunity:</strong> <strong>100-1000x reduction</strong> is achievable through:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Technique</strong></th>
+<th><strong>Potential Savings</strong></th>
+<th><strong>Feasibility</strong></th>
+<th><strong>Implementation Complexity</strong></th>
+<th><strong>Priority</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delta Encoding</td>
+<td>70-90%</td>
+<td>★★★★★</td>
+<td>Medium</td>
+<td><strong>P0</strong></td>
+</tr>
+<tr>
+<td>Region Filtering</td>
+<td>80-95%</td>
+<td>★★★★★</td>
+<td>Low</td>
+<td><strong>P0</strong></td>
+</tr>
+<tr>
+<td>Temporal Downsampling</td>
+<td>50-80%</td>
+<td>★★★★☆</td>
+<td>Medium</td>
+<td><strong>P1</strong></td>
+</tr>
+<tr>
+<td>Predictive Caching</td>
+<td>60-80%</td>
+<td>★★★★☆</td>
+<td>High</td>
+<td><strong>P1</strong></td>
+</tr>
+<tr>
+<td>Model Distillation</td>
+<td>90%+</td>
+<td>★★★☆☆</td>
+<td>Very High</td>
+<td><strong>P2</strong></td>
+</tr>
+<tr>
+<td>Custom Binary Encoding</td>
+<td>60-80%</td>
+<td>★★★★☆</td>
+<td>High</td>
+<td><strong>P1</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>📊 Realistic Target:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Traditional: 500 KB GRIB × 4 updates/day = 2 MB/day
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>With Delta + Region: 50 KB × 4 updates/day = 200 KB/day (10x reduction)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>With All Techniques: ~5 KB × 4 updates/day = 20 KB/day (100x reduction)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Our Goal: &lt;10 KB/day (200x+ reduction)
+</span></code></pre></div></p>
+<h3 id="2-extreme-event-prediction-gap"><strong>2. Extreme Event Prediction Gap</strong></h3>
+<h4 id="current-state_1"><strong>Current State</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Tool</strong></th>
+<th><strong>Storm Detection</strong></th>
+<th><strong>Rogue Wave Prediction</strong></th>
+<th><strong>Iceberg Detection</strong></th>
+<th><strong>Microburst Detection</strong></th>
+<th><strong>Shallow Water Avoidance</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PredictWind</td>
+<td>✅ Basic</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>SailGrib WR</td>
+<td>⚠️ Limited</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>StormGeo AWT</td>
+<td>✅ Advanced</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>⚠️ Basic</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>qtVlm</td>
+<td>⚠️ Basic</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>💡 Opportunity:</strong> <strong>Specialized extreme event prediction</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Event Type</strong></th>
+<th><strong>Current Detection</strong></th>
+<th><strong>Our Opportunity</strong></th>
+<th><strong>Data Required</strong></th>
+<th><strong>AI Approach</strong></th>
+<th><strong>Priority</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tropical Storms</td>
+<td>✅ Good (forecast models)</td>
+<td>⚠️ Improve accuracy</td>
+<td>GRIB + Satellite</td>
+<td>Forecast Error Modeling</td>
+<td><strong>P0</strong></td>
+</tr>
+<tr>
+<td>Extra-Tropical Storms</td>
+<td>✅ Good</td>
+<td>⚠️ Improve lead time</td>
+<td>GRIB + Buoy Data</td>
+<td>Time Series Forecasting</td>
+<td><strong>P0</strong></td>
+</tr>
+<tr>
+<td>Rogue Waves</td>
+<td>❌ None</td>
+<td>✅ <strong>First to market</strong></td>
+<td>Wave Spectra</td>
+<td>Anomaly Detection</td>
+<td><strong>P1</strong></td>
+</tr>
+<tr>
+<td>Icebergs</td>
+<td>❌ None (except StormGeo)</td>
+<td>✅ <strong>First to market</strong></td>
+<td>AIS + Satellite</td>
+<td>Object Detection</td>
+<td><strong>P1</strong></td>
+</tr>
+<tr>
+<td>Microbursts</td>
+<td>❌ None</td>
+<td>✅ <strong>First to market</strong></td>
+<td>High-res Wind Data</td>
+<td>Pattern Recognition</td>
+<td><strong>P2</strong></td>
+</tr>
+<tr>
+<td>Sudden Wind Shifts</td>
+<td>⚠️ Basic</td>
+<td>✅ Improve prediction</td>
+<td>GRIB + Local Sensors</td>
+<td>Time Series + Spatial</td>
+<td><strong>P1</strong></td>
+</tr>
+<tr>
+<td>Shallow Water</td>
+<td>✅ Good</td>
+<td>⚠️ Improve with AI</td>
+<td>Bathymetry + GRIB</td>
+<td>Risk Modeling</td>
+<td><strong>P2</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-edge-deployment-gap"><strong>3. Edge Deployment Gap</strong></h3>
+<h4 id="current-state_2"><strong>Current State</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Tool</strong></th>
+<th><strong>Raspberry Pi Support</strong></th>
+<th><strong>Battery Optimization</strong></th>
+<th><strong>Offline-First</strong></th>
+<th><strong>Incremental Updates</strong></th>
+<th><strong>Memory Usage</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PredictWind</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>High</td>
+</tr>
+<tr>
+<td>SailGrib WR</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>qtVlm</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>High</td>
+</tr>
+<tr>
+<td>libweatherrouting</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<p><strong>💡 Opportunity:</strong> <strong>Edge-optimized deployment</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Optimization</strong></th>
+<th><strong>Current State</strong></th>
+<th><strong>Our Target</strong></th>
+<th><strong>Impact</strong></th>
+<th><strong>Priority</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi Support</td>
+<td>⚠️ Partial</td>
+<td>✅ Full</td>
+<td>Enable edge deployment</td>
+<td><strong>P0</strong></td>
+</tr>
+<tr>
+<td>Battery Usage</td>
+<td>&gt;10 Wh/update</td>
+<td><strong>&lt;1 Wh/update</strong></td>
+<td>10x improvement</td>
+<td><strong>P0</strong></td>
+</tr>
+<tr>
+<td>Inference Time</td>
+<td>1-10 min</td>
+<td><strong>&lt;1 min</strong></td>
+<td>Real-time capability</td>
+<td><strong>P0</strong></td>
+</tr>
+<tr>
+<td>Memory Usage</td>
+<td>500-1000 MB</td>
+<td><strong>&lt;500 MB</strong></td>
+<td>Edge viability</td>
+<td><strong>P1</strong></td>
+</tr>
+<tr>
+<td>Offline-First Design</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+<td>Satellite independence</td>
+<td><strong>P0</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="market-positioning-analysis"><strong>🎯 Market Positioning Analysis</strong></h2>
+<h3 id="1-competitive-landscape"><strong>1. Competitive Landscape</strong></h3>
+<h4 id="market-segments"><strong>Market Segments</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Segment</strong></th>
+<th><strong>Users</strong></th>
+<th><strong>Needs</strong></th>
+<th><strong>Current Solutions</strong></th>
+<th><strong>Our Opportunity</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Professional Racing</strong></td>
+<td>100-500 teams</td>
+<td>Speed, accuracy, reliability</td>
+<td>StormGeo, PredictWind</td>
+<td><strong>Data efficiency</strong> for satellite racing</td>
+</tr>
+<tr>
+<td><strong>Offshore Cruising</strong></td>
+<td>10,000+ boats</td>
+<td>Safety, cost-effectiveness</td>
+<td>SailGrib, qtVlm</td>
+<td><strong>Extreme event prediction</strong> + low cost</td>
+</tr>
+<tr>
+<td><strong>Research Vessels</strong></td>
+<td>100-500 vessels</td>
+<td>Remote operations, reliability</td>
+<td>Custom solutions</td>
+<td><strong>Turnkey low-data solution</strong></td>
+</tr>
+<tr>
+<td><strong>Autonomous Boats</strong></td>
+<td>Growing market</td>
+<td>Full automation, reliability</td>
+<td>Custom, PredictWind</td>
+<td><strong>AI-native, edge-optimized</strong></td>
+</tr>
+<tr>
+<td><strong>Commercial Shipping</strong></td>
+<td>50,000+ vessels</td>
+<td>Cost savings, safety</td>
+<td>StormGeo, Oceanroutes</td>
+<td><strong>Fuel savings</strong> via optimal routing</td>
+</tr>
+</tbody>
+</table>
+<h4 id="competitive-matrix"><strong>Competitive Matrix</strong></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>                    DATA EFFICIENCY
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                    ⬆
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                    |
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        StormGeo ────┬── PredictWind
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        Oceanroutes │   ⬆
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                    │   ⬆
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                    │   SailGrib
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        qtVlm ───────┼───────▶ EXTREME EVENT PREDICTION
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                    │       Our
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        libweather  │       Router
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        routing    │       ⬇
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                    │
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                    ⬇
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                    LOW          HIGH
+</span></code></pre></div>
+<p><strong>Our Position:</strong> <strong>High data efficiency + High extreme event prediction</strong> = <strong>Unique market position</strong></p>
+<h3 id="2-differentiators"><strong>2. Differentiators</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Factor</strong></th>
+<th><strong>Our Router</strong></th>
+<th><strong>PredictWind</strong></th>
+<th><strong>SailGrib WR</strong></th>
+<th><strong>StormGeo AWT</strong></th>
+<th><strong>qtVlm</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data Efficiency</strong></td>
+<td>✅ <strong>&lt;10 KB/day</strong></td>
+<td>❌ 200-500 KB/day</td>
+<td>⚠️ 100-300 KB/day</td>
+<td>❌ 500-1000 KB/day</td>
+<td>❌ 500-1000 KB/day</td>
+</tr>
+<tr>
+<td><strong>Extreme Event Prediction</strong></td>
+<td>✅ <strong>Specialized</strong></td>
+<td>⚠️ Basic</td>
+<td>⚠️ Limited</td>
+<td>✅ Advanced</td>
+<td>⚠️ Basic</td>
+</tr>
+<tr>
+<td><strong>AI-Native</strong></td>
+<td>✅ <strong>Yes</strong></td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td><strong>Edge-Optimized</strong></td>
+<td>✅ <strong>Yes</strong></td>
+<td>❌ No</td>
+<td>⚠️ Partial</td>
+<td>❌ No</td>
+<td>⚠️ Partial</td>
+</tr>
+<tr>
+<td><strong>Offline-First</strong></td>
+<td>✅ <strong>Yes</strong></td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Open Source</strong></td>
+<td>✅ <strong>Yes</strong></td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Satellite Optimized</strong></td>
+<td>✅ <strong>Yes</strong></td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>✅ <strong>Low</strong></td>
+<td>❌ High</td>
+<td>⚠️ Medium</td>
+<td>❌ Very High</td>
+<td>✅ Free</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-target-users"><strong>3. Target Users</strong></h3>
+<h4 id="primary-targets"><strong>Primary Targets</strong></h4>
+<ol>
+<li><strong>Offshore Racers</strong></li>
+<li><strong>Pain Point:</strong> Limited satellite bandwidth (Iridium: 2-5 KB/s)</li>
+<li><strong>Need:</strong> Real-time routing with minimal data</li>
+<li><strong>Value Prop:</strong> <strong>100x data reduction</strong> = <strong>100x cost savings</strong></li>
+<li>
+<p><strong>Willingness to Pay:</strong> High (saves race)</p>
+</li>
+<li>
+<p><strong>Long-Distance Cruisers</strong></p>
+</li>
+<li><strong>Pain Point:</strong> Satellite costs ($0.50-5.00/MB)</li>
+<li><strong>Need:</strong> Cost-effective routing with safety</li>
+<li><strong>Value Prop:</strong> <strong><span class="arithmatex">\(15-150/day** → **&lt;\)</span>0.15/day</strong></li>
+<li>
+<p><strong>Willingness to Pay:</strong> Medium (saves money)</p>
+</li>
+<li>
+<p><strong>Research Vessels</strong></p>
+</li>
+<li><strong>Pain Point:</strong> Remote operations with intermittent connectivity</li>
+<li><strong>Need:</strong> Reliable, autonomous routing</li>
+<li><strong>Value Prop:</strong> <strong>Reduced human intervention</strong></li>
+<li><strong>Willingness to Pay:</strong> Medium-High (operational efficiency)</li>
+</ol>
+<h4 id="secondary-targets"><strong>Secondary Targets</strong></h4>
+<ol>
+<li><strong>Autonomous Boat Developers</strong></li>
+<li><strong>Pain Point:</strong> Need AI-native, edge-optimized solution</li>
+<li>
+<p><strong>Value Prop:</strong> <strong>Turnkey solution</strong> for autonomous navigation</p>
+</li>
+<li>
+<p><strong>Commercial Shipping (Future)</strong></p>
+</li>
+<li><strong>Pain Point:</strong> Fuel costs, safety regulations</li>
+<li><strong>Value Prop:</strong> <strong>1-5% fuel savings</strong> via optimal routing</li>
+</ol>
+<hr />
+<h2 id="strategic-recommendations"><strong>🚀 Strategic Recommendations</strong></h2>
+<h3 id="1-technical-priorities"><strong>1. Technical Priorities</strong></h3>
+<h4 id="phase-1-core-0-3-months"><strong>Phase 1: Core (0-3 months)</strong></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Delta encoding</strong> for weather data (P0)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Region filtering</strong> (P0)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Baseline routing engine</strong> (libweatherrouting fork) (P0)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Infoclimat API integration</strong> (P0)</li>
+</ul>
+<h4 id="phase-2-safety-3-6-months"><strong>Phase 2: Safety (3-6 months)</strong></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Storm detection</strong> (P0)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Rogue wave prediction</strong> (P1)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Iceberg detection</strong> (P1)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Safety constraints</strong> (hard limits) (P0)</li>
+</ul>
+<h4 id="phase-3-optimization-6-9-months"><strong>Phase 3: Optimization (6-9 months)</strong></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Edge deployment</strong> (Raspberry Pi) (P0)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Battery optimization</strong> (P0)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Forecast error modeling</strong> (P1)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Probabilistic routing</strong> (P1)</li>
+</ul>
+<h4 id="phase-4-advanced-9-12-months"><strong>Phase 4: Advanced (9-12 months)</strong></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Imitation learning</strong> (expert routes) (P2)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Adaptive polars</strong> (P2)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Multi-objective optimization</strong> (P2)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Microburst detection</strong> (P2)</li>
+</ul>
+<h3 id="2-go-to-market-strategy"><strong>2. Go-To-Market Strategy</strong></h3>
+<h4 id="phase-1-validation-0-3-months"><strong>Phase 1: Validation (0-3 months)</strong></h4>
+<ul>
+<li><strong>Target:</strong> Offshore racers, early adopters</li>
+<li><strong>Channel:</strong> Direct outreach, sailing forums</li>
+<li><strong>Message:</strong> "100x data reduction for satellite racing"</li>
+<li><strong>Goal:</strong> 10-20 beta users</li>
+</ul>
+<h4 id="phase-2-growth-3-6-months"><strong>Phase 2: Growth (3-6 months)</strong></h4>
+<ul>
+<li><strong>Target:</strong> Long-distance cruisers, research vessels</li>
+<li><strong>Channel:</strong> Sailing magazines, boat shows, partnerships</li>
+<li><strong>Message:</strong> "Save $15-150/day on satellite costs"</li>
+<li><strong>Goal:</strong> 100+ users</li>
+</ul>
+<h4 id="phase-3-scale-6-12-months"><strong>Phase 3: Scale (6-12 months)</strong></h4>
+<ul>
+<li><strong>Target:</strong> Autonomous boat developers, commercial shipping</li>
+<li><strong>Channel:</strong> Industry conferences, B2B sales</li>
+<li><strong>Message:</strong> "AI-native, edge-optimized routing"</li>
+<li><strong>Goal:</strong> 1000+ users, revenue generation</li>
+</ul>
+<h3 id="3-partnership-strategy"><strong>3. Partnership Strategy</strong></h3>
+<h4 id="tier-1-critical-0-3-months"><strong>Tier 1: Critical (0-3 months)</strong></h4>
+<ul>
+<li><strong>Infoclimat</strong> – Weather data provider (✅ Secured)</li>
+<li><strong>Freewinds.world</strong> – Testing platform (✅ Secured)</li>
+<li><strong>qtVlm</strong> – Open-source integration</li>
+</ul>
+<h4 id="tier-2-strategic-3-6-months"><strong>Tier 2: Strategic (3-6 months)</strong></h4>
+<ul>
+<li><strong>PredictWind</strong> – Commercial integration</li>
+<li><strong>SailGrib</strong> – Mobile integration</li>
+<li><strong>NOAA</strong> – Public data access</li>
+<li><strong>Iridium</strong> – Satellite partnership</li>
+</ul>
+<h4 id="tier-3-long-term-6-12-months"><strong>Tier 3: Long-Term (6-12 months)</strong></h4>
+<ul>
+<li><strong>StormGeo</strong> – Enterprise integration</li>
+<li><strong>Navionics</strong> – Chart integration</li>
+<li><strong>Garmin</strong> – Hardware integration</li>
+<li><strong>Raymarine</strong> – Hardware integration</li>
+</ul>
+<hr />
+<h2 id="critiques-fact-checking"><strong>⚠️ Critiques &amp; Fact-Checking</strong></h2>
+<h3 id="1-common-misconceptions-in-literature"><strong>1. Common Misconceptions in Literature</strong></h3>
+<h4 id="myth-ai-is-already-used-in-production-routing"><strong>❌ Myth: "AI is already used in production routing"</strong></h4>
+<ul>
+<li><strong>Reality:</strong> <strong>No commercial tool</strong> uses AI for routing</li>
+<li><strong>Exception:</strong> StormGeo claims "AI-enhanced" but provides <strong>no technical details</strong></li>
+<li><strong>Source:</strong> Direct testing, user reports, company documentation</li>
+</ul>
+<h4 id="myth-grib-files-are-too-large-for-satellite-transmission"><strong>❌ Myth: "GRIB files are too large for satellite transmission"</strong></h4>
+<ul>
+<li><strong>Reality:</strong> GRIB files <strong>can</strong> be transmitted via satellite, but at <strong>high cost</strong></li>
+<li><strong>Iridium:</strong> 2-5 KB/s → 500 KB file = <strong>100-250 seconds</strong> = <strong>$0.25-1.25</strong></li>
+<li><strong>Starlink:</strong> 50-100 KB/s → 500 KB file = <strong>5-10 seconds</strong> = <strong>$0.025-0.25</strong></li>
+<li><strong>Our Solution:</strong> <strong>&lt;10 KB/day</strong> = <strong>&lt;2 seconds/day</strong> on Iridium = <strong>&lt;$0.01/day</strong></li>
+</ul>
+<h4 id="myth-offline-routing-is-sufficient"><strong>❌ Myth: "Offline routing is sufficient"</strong></h4>
+<ul>
+<li><strong>Reality:</strong> Offline routing <strong>degrades quickly</strong> as forecasts age</li>
+<li><strong>24h forecast:</strong> ~90% accuracy</li>
+<li><strong>48h forecast:</strong> ~80% accuracy</li>
+<li><strong>72h forecast:</strong> ~70% accuracy</li>
+<li><strong>Our Solution:</strong> <strong>Delta updates</strong> maintain accuracy with minimal data</li>
+</ul>
+<h4 id="myth-isochrone-algorithms-are-optimal"><strong>❌ Myth: "Isochrone algorithms are optimal"</strong></h4>
+<ul>
+<li><strong>Reality:</strong> Isochrone algorithms are <strong>good but not optimal</strong></li>
+<li><strong>Limitations:</strong></li>
+<li>No uncertainty handling</li>
+<li>No multi-objective optimization</li>
+<li>No AI enhancement</li>
+<li>Computationally expensive for high resolution</li>
+<li><strong>Our Solution:</strong> <strong>Hierarchical A* + AI</strong> for better performance</li>
+</ul>
+<h3 id="2-overstated-claims-in-commercial-tools"><strong>2. Overstated Claims in Commercial Tools</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Tool</strong></th>
+<th><strong>Claim</strong></th>
+<th><strong>Reality</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PredictWind</td>
+<td>"Best routing for offshore"</td>
+<td>Good but <strong>not AI-powered</strong></td>
+<td>User reports</td>
+</tr>
+<tr>
+<td>SailGrib WR</td>
+<td>"Most accurate routing"</td>
+<td><strong>No AI</strong>, basic isochrone</td>
+<td>Code review</td>
+</tr>
+<tr>
+<td>StormGeo AWT</td>
+<td>"AI-powered routing"</td>
+<td><strong>No evidence</strong> of AI in routing</td>
+<td>Company docs</td>
+</tr>
+<tr>
+<td>Oceanroutes</td>
+<td>"Enterprise-grade"</td>
+<td><strong>High cost</strong>, no AI</td>
+<td>User reports</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-understated-challenges"><strong>3. Understated Challenges</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Challenge</strong></th>
+<th><strong>Typical Treatment</strong></th>
+<th><strong>Reality</strong></th>
+<th><strong>Our Approach</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forecast Uncertainty</td>
+<td>Ignored</td>
+<td><strong>Critical</strong> for safety</td>
+<td>Probabilistic routing</td>
+</tr>
+<tr>
+<td>Data Gaps</td>
+<td>Interpolated</td>
+<td><strong>Common</strong> in oceanic regions</td>
+<td>Handle sparse data</td>
+</tr>
+<tr>
+<td>Bandwidth Limitations</td>
+<td>Afterthought</td>
+<td><strong>Primary constraint</strong></td>
+<td>Delta encoding</td>
+</tr>
+<tr>
+<td>Edge Deployment</td>
+<td>Not considered</td>
+<td><strong>Essential</strong> for real-world use</td>
+<td>Raspberry Pi optimization</td>
+</tr>
+<tr>
+<td>Battery Constraints</td>
+<td>Ignored</td>
+<td><strong>Critical</strong> for long voyages</td>
+<td>&lt;1 Wh/update</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="additional-research"><strong>📖 Additional Research</strong></h2>
+<h3 id="1-satellite-bandwidth-reality"><strong>1. Satellite Bandwidth Reality</strong></h3>
+<h4 id="iridium"><strong>Iridium</strong></h4>
+<ul>
+<li><strong>Speed:</strong> 2.4-5 KB/s (burst), 1.2 KB/s (sustained)</li>
+<li><strong>Cost:</strong> $0.50-5.00/MB</li>
+<li><strong>Latency:</strong> 1-2 seconds</li>
+<li><strong>Coverage:</strong> Global (including poles)</li>
+<li><strong>Best For:</strong> Emergency, low-bandwidth applications</li>
+</ul>
+<h4 id="starlink"><strong>Starlink</strong></h4>
+<ul>
+<li><strong>Speed:</strong> 50-100 MB/s (theoretical), 50-100 KB/s (maritime)</li>
+<li><strong>Cost:</strong> $150-500/month (hardware + subscription)</li>
+<li><strong>Latency:</strong> 20-50 ms</li>
+<li><strong>Coverage:</strong> Global (except poles)</li>
+<li><strong>Best For:</strong> High-bandwidth applications</li>
+</ul>
+<h4 id="other-options"><strong>Other Options</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Service</strong></th>
+<th><strong>Speed</strong></th>
+<th><strong>Cost</strong></th>
+<th><strong>Coverage</strong></th>
+<th><strong>Best For</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inmarsat</td>
+<td>10-100 KB/s</td>
+<td>$1-10/MB</td>
+<td>Global</td>
+<td>Commercial shipping</td>
+</tr>
+<tr>
+<td>Globalstar</td>
+<td>1-9.6 KB/s</td>
+<td>$0.50-2.00/MB</td>
+<td>Global</td>
+<td>Backup</td>
+</tr>
+<tr>
+<td>Thuraya</td>
+<td>1-444 KB/s</td>
+<td>$1-5/MB</td>
+<td>Regional</td>
+<td>Regional use</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-grib-file-analysis"><strong>2. GRIB File Analysis</strong></h3>
+<h4 id="file-sizes"><strong>File Sizes</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Resolution</strong></th>
+<th><strong>Area</strong></th>
+<th><strong>Variables</strong></th>
+<th><strong>File Size</strong></th>
+<th><strong>Update Frequency</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.25°</td>
+<td>Global</td>
+<td>Wind only</td>
+<td>100-200 KB</td>
+<td>6h</td>
+</tr>
+<tr>
+<td>0.25°</td>
+<td>Global</td>
+<td>Wind + Pressure</td>
+<td>200-400 KB</td>
+<td>6h</td>
+</tr>
+<tr>
+<td>0.25°</td>
+<td>Global</td>
+<td>Full</td>
+<td>400-600 KB</td>
+<td>6h</td>
+</tr>
+<tr>
+<td>0.5°</td>
+<td>Global</td>
+<td>Wind only</td>
+<td>50-100 KB</td>
+<td>6h</td>
+</tr>
+<tr>
+<td>0.5°</td>
+<td>Global</td>
+<td>Wind + Pressure</td>
+<td>100-200 KB</td>
+<td>6h</td>
+</tr>
+<tr>
+<td>0.5°</td>
+<td>Regional</td>
+<td>Full</td>
+<td>10-50 KB</td>
+<td>6h</td>
+</tr>
+<tr>
+<td>1.0°</td>
+<td>Global</td>
+<td>Wind only</td>
+<td>20-50 KB</td>
+<td>12h</td>
+</tr>
+</tbody>
+</table>
+<h4 id="compression"><strong>Compression</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Method</strong></th>
+<th><strong>Compression Ratio</strong></th>
+<th><strong>Speed</strong></th>
+<th><strong>Implementation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GRIB Packing</td>
+<td>2-3x</td>
+<td>Fast</td>
+<td>Built-in</td>
+</tr>
+<tr>
+<td>GZIP</td>
+<td>3-4x</td>
+<td>Medium</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>BZIP2</td>
+<td>4-5x</td>
+<td>Slow</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>Delta Encoding</td>
+<td>10-100x</td>
+<td>Medium</td>
+<td>Custom</td>
+</tr>
+<tr>
+<td>Region Filtering</td>
+<td>10-100x</td>
+<td>Fast</td>
+<td>Custom</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-extreme-event-statistics"><strong>3. Extreme Event Statistics</strong></h3>
+<h4 id="storm-frequency"><strong>Storm Frequency</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Region</strong></th>
+<th><strong>Tropical Storms/Year</strong></th>
+<th><strong>Extra-Tropical Storms/Year</strong></th>
+<th><strong>Rogue Waves/Year</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>North Atlantic</td>
+<td>10-15</td>
+<td>50-100</td>
+<td>10-20</td>
+</tr>
+<tr>
+<td>North Pacific</td>
+<td>15-20</td>
+<td>40-80</td>
+<td>10-20</td>
+</tr>
+<tr>
+<td>South Atlantic</td>
+<td>1-5</td>
+<td>30-60</td>
+<td>5-10</td>
+</tr>
+<tr>
+<td>South Pacific</td>
+<td>5-10</td>
+<td>40-80</td>
+<td>10-20</td>
+</tr>
+<tr>
+<td>Indian Ocean</td>
+<td>5-10</td>
+<td>20-40</td>
+<td>5-10</td>
+</tr>
+<tr>
+<td>Southern Ocean</td>
+<td>0</td>
+<td>100-200</td>
+<td>20-50</td>
+</tr>
+</tbody>
+</table>
+<h4 id="rogue-wave-statistics"><strong>Rogue Wave Statistics</strong></h4>
+<ul>
+<li><strong>Definition:</strong> Wave &gt;2x significant wave height</li>
+<li><strong>Frequency:</strong> 1 in 10,000 waves (1-2 per day in storm conditions)</li>
+<li><strong>Height:</strong> Up to 30m (100ft)</li>
+<li><strong>Danger:</strong> Can capsize vessels up to 200m</li>
+<li><strong>Prediction:</strong> Currently <strong>not predictable</strong> with standard models</li>
+</ul>
+<h4 id="iceberg-statistics"><strong>Iceberg Statistics</strong></h4>
+<ul>
+<li><strong>North Atlantic:</strong> 10,000-40,000 icebergs/year</li>
+<li><strong>Southern Ocean:</strong> Millions of icebergs</li>
+<li><strong>Detection:</strong> Primarily via satellite (SAR, optical)</li>
+<li><strong>Tracking:</strong> AIS for large icebergs</li>
+<li><strong>Danger:</strong> Can sink vessels of any size</li>
+</ul>
+<h3 id="4-boat-performance-data"><strong>4. Boat Performance Data</strong></h3>
+<h4 id="typical-polars"><strong>Typical Polars</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Boat Type</strong></th>
+<th><strong>Upwind Speed (TWS 15kn)</strong></th>
+<th><strong>Downwind Speed (TWS 15kn)</strong></th>
+<th><strong>Optimal Angle</strong></th>
+<th><strong>Max Speed</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dinghy</td>
+<td>5-8 kn</td>
+<td>8-12 kn</td>
+<td>45-60°</td>
+<td>10-15 kn</td>
+</tr>
+<tr>
+<td>Daysailer</td>
+<td>4-6 kn</td>
+<td>6-9 kn</td>
+<td>40-50°</td>
+<td>8-12 kn</td>
+</tr>
+<tr>
+<td>Cruising Sailboat</td>
+<td>5-7 kn</td>
+<td>7-10 kn</td>
+<td>45-60°</td>
+<td>8-12 kn</td>
+</tr>
+<tr>
+<td>Racing Sailboat</td>
+<td>8-12 kn</td>
+<td>12-18 kn</td>
+<td>35-50°</td>
+<td>15-25 kn</td>
+</tr>
+<tr>
+<td>Catamaran</td>
+<td>7-10 kn</td>
+<td>10-15 kn</td>
+<td>40-55°</td>
+<td>12-20 kn</td>
+</tr>
+<tr>
+<td>Trimaran</td>
+<td>10-15 kn</td>
+<td>15-20 kn</td>
+<td>30-45°</td>
+<td>18-25 kn</td>
+</tr>
+</tbody>
+</table>
+<h4 id="performance-factors"><strong>Performance Factors</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Factor</strong></th>
+<th><strong>Impact</strong></th>
+<th><strong>Data Source</strong></th>
+<th><strong>Modeling Difficulty</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wind Speed</td>
+<td>High</td>
+<td>GRIB</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Wind Direction</td>
+<td>High</td>
+<td>GRIB</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Current</td>
+<td>Medium</td>
+<td>GRIB, HYCOM</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Waves</td>
+<td>High</td>
+<td>GRIB, Wave Models</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Sea State</td>
+<td>Medium</td>
+<td>Wave Models</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Boat Condition</td>
+<td>Medium</td>
+<td>Sensors</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Crew Skill</td>
+<td>Low</td>
+<td>Subjective</td>
+<td>Very High</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="references"><strong>📝 References</strong></h2>
+<h3 id="commercial-tools"><strong>Commercial Tools</strong></h3>
+<ul>
+<li><a href="https://www.predictwind.com">PredictWind</a></li>
+<li><a href="https://www.sailgrib.com">SailGrib WR</a></li>
+<li><a href="https://www.stormgeo.com">StormGeo AWT</a></li>
+<li><a href="https://www.oceanroutes.com">Oceanroutes</a></li>
+<li><a href="https://www.virtual-winds.org/">qtVlm</a></li>
+</ul>
+<h3 id="open-source-projects"><strong>Open-Source Projects</strong></h3>
+<ul>
+<li><a href="https://github.com/WeatherRouting/gweatherrouting">gweatherrouting</a></li>
+<li><a href="https://github.com/WeatherRouting/libweatherrouting">libweatherrouting</a></li>
+<li><a href="https://www.opencpn.org/">OpenCPN</a></li>
+</ul>
+<h3 id="academic-research"><strong>Academic Research</strong></h3>
+<ul>
+<li><a href="https://www.mdpi.com/2077-1312/13/5/902">MDPI 2024: Deep RL for Maritime Routing</a></li>
+<li><a href="https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/">Berkeley CMR: Hybrid RL+Graph</a></li>
+<li><a href="https://dl.acm.org/doi/fullHtml/10.1145/3581792.3581803">MIT 2023: Imitation Learning</a></li>
+<li><a href="https://journals.mriindia.com/index.php/ijacte/article/view/2601">Southampton: MCTS for Routing</a></li>
+</ul>
+<h3 id="data-sources"><strong>Data Sources</strong></h3>
+<ul>
+<li><a href="https://www.noaa.gov/">NOAA</a></li>
+<li><a href="https://www.ecmwf.int/">ECMWF</a></li>
+<li><a href="https://www.infoclimat.fr">Infoclimat</a></li>
+<li><a href="https://www.hycom.org/">HYCOM</a></li>
+<li><a href="https://www.wmo.int/pages/prog/www/WDM/Guides/Guide-binary-2.html">GRIB Format</a></li>
+</ul>
+<h3 id="satellite-services"><strong>Satellite Services</strong></h3>
+<ul>
+<li><a href="https://www.iridium.com/">Iridium</a></li>
+<li><a href="https://www.starlink.com/maritime">Starlink Maritime</a></li>
+<li><a href="https://www.inmarsat.com/">Inmarsat</a></li>
+<li><a href="https://www.globalstar.com/">Globalstar</a></li>
+</ul>
+<hr />
+<h2 id="appendix-benchmarking-data"><strong>📊 Appendix: Benchmarking Data</strong></h2>
+<h3 id="current-tool-performance"><strong>Current Tool Performance</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Tool</strong></th>
+<th><strong>Route Quality</strong></th>
+<th><strong>Data Usage</strong></th>
+<th><strong>Computation Time</strong></th>
+<th><strong>Safety Features</strong></th>
+<th><strong>Cost</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PredictWind</td>
+<td>★★★★☆</td>
+<td>★☆☆☆☆</td>
+<td>★★★☆☆</td>
+<td>★★★☆☆</td>
+<td>$$$$</td>
+</tr>
+<tr>
+<td>SailGrib WR</td>
+<td>★★★☆☆</td>
+<td>★★☆☆☆</td>
+<td>★★★★☆</td>
+<td>★★☆☆☆</td>
+<td>$$</td>
+</tr>
+<tr>
+<td>StormGeo AWT</td>
+<td>★★★★★</td>
+<td>★☆☆☆☆</td>
+<td>★★★★☆</td>
+<td>★★★★★</td>
+<td>$$$$$</td>
+</tr>
+<tr>
+<td>qtVlm</td>
+<td>★★★★☆</td>
+<td>★☆☆☆☆</td>
+<td>★★☆☆☆</td>
+<td>★★☆☆☆</td>
+<td>Free</td>
+</tr>
+<tr>
+<td>libweatherrouting</td>
+<td>★★★☆☆</td>
+<td>★★☆☆☆</td>
+<td>★★★★☆</td>
+<td>★☆☆☆☆</td>
+<td>Free</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rating Scale:</strong> ★☆☆☆☆ (Worst) to ★★★★★ (Best)</p>
+<hr />
+<p><strong>© 2026 LowDataSail</strong>
+<strong>Last Updated:</strong> September 6, 2026
+<strong>Version:</strong> 2.0 (Extended &amp; Fact-Checked)</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 6, 2026 18:34:36 UTC"><span class="timeago" datetime="2026-09-06T18:34:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 6, 2026 18:34:36 UTC">2026-09-06</span>
+  </span>
+
+    
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Contributors">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+      
+    </span>
+    <nav>
+      
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2026 <a href="https://github.com/LowDataSail" target="_blank" rel="noopener">LowDataSail</a> |
+<a href="https://github.com/LowDataSail/Light-Router/blob/master/LICENSE" target="_blank" rel="noopener">MIT License</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/LowDataSail" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/LowDataSail" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:contact@lowdatasail.org" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.sections", "navigation.expand", "navigation.path", "toc.integrate", "search.suggest", "search.highlight", "header.autohide"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/timeago.min.js"></script>
+      
+        <script src="../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../assets/js/custom.js"></script>
+      
+    
+  </body>
+</html>
