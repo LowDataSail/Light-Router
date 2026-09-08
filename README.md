@@ -51,6 +51,8 @@ For detailed information:
 
 ## **🤝 Potential Collaborations**
 
+- **Infoclimat** — Potential weather data provider (GRIB2, wave models)
+- **Freewinds.world** — Potential simulation and testing platform
 - **Open source community** — libweatherrouting, OpenCPN Weather Routing, SIMROUTE
 - **Public data sources** — NOAA, ECMWF (open data since Oct 2025), Copernicus Marine Service
 

@@ -95,7 +95,7 @@ Build robust prediction models to identify and avoid dangerous weather events du
 ## **🧪 Validation Strategy**
 
 ### **Platforms**
-1. **Virtual sailing platforms** - Potential showcase via virtual race simulations
+1. **Freewinds.world** - Potential simulation and showcase platform (virtual sailing, route validation)
 2. **OpenCPN** - Open source integration for community testing
 3. **Custom Simulator** - Full control for edge cases
 
@@ -114,7 +114,10 @@ Build robust prediction models to identify and avoid dangerous weather events du
 - **ECMWF Open Data:** Free 9 km IFS forecasts since October 2025
 - **Copernicus Marine Service (CMEMS):** Wave and current data
 - **Saildocs:** Email-based GRIB delivery for low-bandwidth scenarios
-- **Infoclimat:** Potential additional source (not yet contacted)
+- **Infoclimat:** Potential primary data provider — GRIB2, wave models, real-time forecasts (not yet contacted)
+
+### **Simulation and Testing**
+- **Freewinds.world:** Potential simulation platform for virtual race testing and route validation (not yet contacted)
 
 ### **Open Source Community**
 - **libweatherrouting:** [https://github.com/dakk/libweatherrouting](https://github.com/dakk/libweatherrouting) — Python routing library
@@ -141,7 +144,7 @@ Build robust prediction models to identify and avoid dangerous weather events du
 - Validate with real-world testing
 
 ### **Phase 4: Showcase**
-- Deploy on virtual sailing platforms
+- Deploy on Freewinds.world (if collaboration established)
 - Publish benchmark results
 - Engage sailing community
 
@@ -162,6 +165,8 @@ Build robust prediction models to identify and avoid dangerous weather events du
 - [ECMWF Open Data](https://data.ecmwf.int) — Free since October 2025
 - [Copernicus Marine Service](https://marine.copernicus.eu) — Wave and current data
 - [Saildocs](http://www.saildocs.com) — Email-based GRIB service
+- [Infoclimat](https://www.infoclimat.fr) — Potential data provider
+- [Freewinds.world](https://freewinds.world) — Potential simulation platform
 - [Golden Globe Race 2026](https://goldengloberace.com) — Starts September 6, 2026
 
 ---
