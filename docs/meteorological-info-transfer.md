@@ -13,10 +13,11 @@
 - **Data Portal:** [https://www.ncdc.noaa.gov](https://www.ncdc.noaa.gov)
 - **GRIB Data:** [https://nomads.ncep.noaa.gov](https://nomads.ncep.noaa.gov)
 - **Models:**
-  - **GFS (Global Forecast System):** 0.25° resolution, 16-day forecast, 3-hourly updates
+  - **GFS (Global Forecast System):** ~13 km (0.25°) resolution for first 192 hours, degrading to ~2.5° after 192h; 384-hour (16-day) forecast; runs 4x daily (00Z, 06Z, 12Z, 18Z); 3-hourly output intervals for first 192h, 12-hourly after
     - **Documentation:** [https://www.nco.ncep.noaa.gov/pmb/products/gfs/](https://www.nco.ncep.noaa.gov/pmb/products/gfs/)
     - **Data Access:** [https://nomads.ncep.noaa.gov/dods/gfs_0p25_1hr](https://nomads.ncep.noaa.gov/dods/gfs_0p25_1hr)
-    - **File Size:** ~500-800 KB per full global forecast (0.25° resolution)
+    - **Server-Side Subsetting:** [NOMADS Grib Filter](https://nomads.ncep.noaa.gov/info.php?page=gribfilter) — request specific variables, levels, regions, and forecast hours; only the requested bytes are returned
+    - **File Size:** Full global all-variable all-hours forecast: **500-800 MB**; single time step, wind-only (10u, 10v): ~1-2 MB compressed
   - **NAM (North American Mesoscale):** 3km-12km resolution, 84-hour forecast, 6-hourly updates
     - **Documentation:** [https://www.nco.ncep.noaa.gov/pmb/products/nam/](https://www.nco.ncep.noaa.gov/pmb/products/nam/)
     - **Data Access:** [https://nomads.ncep.noaa.gov/dods/nam](https://nomads.ncep.noaa.gov/dods/nam)
@@ -31,10 +32,11 @@
 - **Website:** [https://www.ecmwf.int](https://www.ecmwf.int)
 - **Data Portal:** [https://apps.ecmwf.int/webapi/](https://apps.ecmwf.int/webapi/)
 - **Models:**
-  - **IFS (Integrated Forecast System):** 0.4° resolution (HRES), 10-day forecast, 12-hourly updates
+  - **IFS (Integrated Forecast System):** 9 km (~0.1°) resolution (HRES), 15-day forecast, runs 2x daily (00Z, 12Z)
     - **Documentation:** [https://confluence.ecmwf.int/display/FCST](https://confluence.ecmwf.int/display/FCST)
-    - **Data Access:** [https://data.ecmwf.int/forecasts/](https://data.ecmwf.int/forecasts/) (requires registration)
-    - **File Size:** ~300-600 KB per full global forecast (0.4° resolution)
+    - **Data Access:** [https://data.ecmwf.int/forecasts/](https://data.ecmwf.int/forecasts/) — open data since October 1, 2025 (no registration required for core products)
+    - **Open Data Info:** [https://confluence.ecmwf.int/display/DAC/ECMWF+open+data](https://confluence.ecmwf.int/display/DAC/ECMWF+open+data)
+    - **File Size:** Full global all-variable all-hours forecast: **300-600 MB**; single time step, wind-only: ~0.5-1 MB compressed
   - **ERA5 (Reanalysis):** 0.25° resolution, hourly data from 1940-present
     - **Documentation:** [https://confluence.ecmwf.int/display/CKB/ERA5+data+documentation](https://confluence.ecmwf.int/display/CKB/ERA5+data+documentation)
     - **Data Access:** [https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels)
@@ -91,9 +93,9 @@
 - **Specifications:** [https://www.nco.ncep.noaa.gov/pmb/docs/grib2/](https://www.nco.ncep.noaa.gov/pmb/docs/grib2/)
 - **Libraries:**
   - **wgrib2:** [https://www.cpc.ncep.noaa.gov/products/wesley/wgrib2/](https://www.cpc.ncep.noaa.gov/products/wesley/wgrib2/)
-  - **pygrib:** [https://github.com/jkukon/pygrib](https://github.com/jkukon/pygrib)
-  - **cfgrib:** [https://github.com/ecmwf/cfgrib](https://github.com/ecmwf/cfgrib) (ECMWF's Python interface)
-  - **grib-api:** [https://confluence.ecmwf.int/display/GRIB](https://confluence.ecmwf.int/display/GRIB) (ECMWF's C library)
+  - **pygrib:** [https://github.com/jswhit/pygrib](https://github.com/jswhit/pygrib)
+  - **cfgrib:** [https://github.com/ecmwf/cfgrib](https://github.com/ecmwf/cfgrib) (Python interface, built on ecCodes)
+  - **ecCodes:** [https://github.com/ecmwf/eccodes](https://github.com/ecmwf/eccodes) (ECMWF's GRIB/BUFR library; successor to the deprecated grib-api)
 
 #### **GRIB1 vs GRIB2**
 | **Feature** | **GRIB1** | **GRIB2** |
@@ -111,9 +113,9 @@
 | None | 0 | 1:1 | Yes | All |
 | Complex Packing | 2 | 1.5-2:1 | Yes | All |
 | Simple Packing | 51 | 2-3:1 | Yes | All |
-| CCSDS | 5.41 | 3-4:1 | Yes | cfgrib, grib-api |
-| JPEG2000 | 5.42 | 4-5:1 | No | cfgrib, grib-api |
-| PNG | 5.43 | 3-4:1 | Yes | cfgrib, grib-api |
+| CCSDS | 5.41 | 3-4:1 | Yes | cfgrib, ecCodes |
+| JPEG2000 | 5.42 | 4-5:1 | No | cfgrib, ecCodes |
+| PNG | 5.43 | 3-4:1 | Yes | cfgrib, ecCodes |
 
 ### **2.2 NetCDF (Network Common Data Form)**
 - **Website:** [https://www.unidata.ucar.edu/software/netcdf/](https://www.unidata.ucar.edu/software/netcdf/)
@@ -197,11 +199,11 @@
 #### **Starlink**
 - **Website:** [https://www.starlink.com](https://www.starlink.com)
 - **Maritime:** [https://www.starlink.com/maritime](https://www.starlink.com/maritime)
-- **Speed:** 50-100 MB/s (theoretical), 50-100 KB/s (maritime typical)
-- **Latency:** 20-50 ms
-- **Cost:** $150-500/month (hardware + subscription)
+- **Speed:** 170-300 Mbps download (typical), 20-60 Mbps upload
+- **Latency:** 20-45 ms
+- **Cost:** $250/month (50 GB priority) to $2,150/month (2 TB); $185/month personal plan (territorial waters only)
 - **Coverage:** Global (except poles)
-- **Optimization:** Standard HTTP compression works well
+- **Note:** Starlink's high bandwidth makes it less relevant for ultra-low-data routing, but it is increasingly the primary connection for cruising yachts. The low-data constraint is most relevant for Iridium and HF radio backup scenarios.
 
 #### **Inmarsat**
 - **Website:** [https://www.inmarsat.com](https://www.inmarsat.com)
@@ -223,6 +225,56 @@
 - **Speed:** 1-444 KB/s
 - **Cost:** $1-5/MB
 - **Coverage:** Regional (Europe, Africa, Asia, Australia)
+
+### **3.4 Email-Based Weather Services**
+
+These services are the primary method used by offshore sailors for low-bandwidth weather data. They work over any email-capable connection (Iridium, HF radio, Starlink) and already implement region, variable, and time filtering server-side.
+
+#### **Saildocs**
+- **Website:** [http://www.saildocs.com](http://www.saildocs.com)
+- **How it works:** Send a formatted email request to `query@saildocs.com`; receive a custom GRIB file back as an attachment
+- **Example request (email subject):** `send gfs:20N,60N,160W,120W|2,2|24,48,72|WIND,WAVES`
+- **Features:** Region subsetting, variable selection, time step selection, scheduled deliveries
+- **Data sources:** GFS, COAMPS, NDFD, WW3, and others
+- **Cost:** Free
+- **Typical file size:** 2-30 KB for a regional wind/wave GRIB
+- **Relevance:** Saildocs already implements the region/variable/time filtering that this project proposes as a novel improvement. The project's contribution must go beyond what Saildocs already offers.
+
+#### **Winlink**
+- **Website:** [https://www.winlink.org](https://www.winlink.org)
+- **How it works:** Global radio email system for licensed amateur radio operators; uses HF/SSB radio with PACTOR modems
+- **Speed:** 100-2400 bits/s depending on PACTOR version and conditions
+- **Features:** Email, weather GRIB requests (via Saildocs), text forecasts, position reporting
+- **Cost:** Free (requires amateur radio license)
+- **File size limit:** Up to ~30 KB per message (Pactor-4); ~10 KB (Pactor-2)
+- **Software:** [Airmail](https://www.winlink.org/Airmail) or [Winlink Express](https://www.winlink.org/WinlinkExpress)
+
+#### **Sailmail**
+- **Website:** [https://www.sailmail.com](https://www.sailmail.com)
+- **How it works:** User-funded marine HF radio email network (no ham license required)
+- **Speed:** Same as Winlink (PACTOR modems)
+- **Features:** Email, weather GRIB requests (via Saildocs), limited business use
+- **Cost:** ~$275/year membership
+- **File size limit:** ~30 KB (Pactor-4), ~10 KB (Pactor-2)
+
+### **3.5 HF Radio Weather Fax (WEFAX)**
+
+- **How it works:** National weather services broadcast weather charts as facsimile images via HF radio; receivable with an HF receiver and laptop soundcard (no data subscription)
+- **NOAA Schedules:** [https://www.weather.gov/media/marine/rfax.pdf](https://www.weather.gov/media/marine/rfax.pdf)
+- **Coverage:** Global (NOAA, DWD, JMA, Met Service stations)
+- **Cost:** Free (requires HF receiver only)
+- **Data content:** Surface analysis, sea state, satellite imagery, forecast charts — as images, not digital GRIB
+- **Software:** [JVComm32](http://www.jvcomm.de/), [ fldigi](https://fldigi.w1kchip.net/)
+- **Relevance:** Zero bandwidth cost; complementary to GRIB-based routing as a backup and for visual situational awareness
+
+### **3.6 Copernicus Marine Service (CMEMS)**
+
+- **Website:** [https://marine.copernicus.eu](https://marine.copernicus.eu)
+- **Data Store:** [https://data.marine.copernicus.eu](https://data.marine.copernicus.eu)
+- **Data:** Ocean wave forecasts (WAM, WW3), ocean currents, sea surface temperature, salinity
+- **Access:** Free, open data (requires registration for API)
+- **Relevance:** Wave and current data are essential for accurate sailing routing — wind alone is insufficient. CMEMS is the primary open source for this data.
+- **Use in routing:** Used by TIMEZERO, SIMROUTE, and other routing tools
 
 ---
 
@@ -260,8 +312,9 @@
   - Dynamically adjust as needed
 - **Savings:** 80-95% for route-specific data
 - **Example:**
-  - Global GRIB: 500 KB
-  - Route corridor (5°x5°): 25-50 KB
+  - Full global GFS GRIB: 500-800 MB
+  - Route corridor (5°x5°), wind only, 3 time steps: 25-50 KB
+- **Note:** This is already implemented by Saildocs (email-based) and the NOMADS Grib Filter service (HTTP-based). The project's contribution is in optimizing the region selection dynamically based on route evolution, not in the filtering itself.
 
 #### **Temporal Downsampling**
 - **Concept:** Use lower resolution for distant forecasts
@@ -294,23 +347,33 @@
 ## **📊 5. Data Size Analysis**
 
 ### **5.1 GRIB File Sizes**
-| **Resolution** | **Area** | **Variables** | **File Size (GRIB1)** | **File Size (GRIB2)** | **Update Frequency** |
-|---------------|----------|---------------|----------------------|----------------------|----------------------|
-| 0.25° | Global | Wind only | 100-200 KB | 80-150 KB | 6h |
-| 0.25° | Global | Wind + Pressure | 200-400 KB | 150-300 KB | 6h |
-| 0.25° | Global | Full | 400-600 KB | 300-500 KB | 6h |
-| 0.5° | Global | Wind only | 50-100 KB | 40-80 KB | 6h |
-| 0.5° | Global | Wind + Pressure | 100-200 KB | 80-150 KB | 6h |
-| 0.5° | Regional (10°x10°) | Full | 10-50 KB | 8-40 KB | 6h |
-| 1.0° | Global | Wind only | 20-50 KB | 15-40 KB | 12h |
+
+Sizes below are per single forecast time step unless otherwise noted. "Full" means all standard variables (wind, pressure, temperature, precipitation, waves) at all standard levels.
+
+| **Resolution** | **Area** | **Variables** | **File Size (GRIB2, single time step)** | **Full forecast run (all time steps)** | **Update Frequency** |
+|---------------|----------|---------------|----------------------------------------|---------------------------------------|----------------------|
+| 0.25° (~28km) | Global | Wind only (10u, 10v) | 1-2 MB | 50-200 MB | 6h |
+| 0.25° | Global | Wind + Pressure | 2-4 MB | 100-400 MB | 6h |
+| 0.25° | Global | Full | 4-8 MB | 500-800 MB | 6h |
+| 0.5° | Global | Wind only | 0.3-0.7 MB | 15-50 MB | 6h |
+| 0.5° | Global | Wind + Pressure | 0.6-1.5 MB | 30-100 MB | 6h |
+| 0.5° | Regional (10°x10°) | Full | 8-40 KB | 0.5-2 MB | 6h |
+| 1.0° | Global | Wind only | 80-150 KB | 5-15 MB | 12h |
+| 0.25° | Route corridor (5°x5°) | Wind only | 5-15 KB | 25-50 KB (3 time steps) | 6h |
+
+**Key insight:** The difference between a full global download and a route-corridor subset is 3-4 orders of magnitude. Existing tools that download regional subsets already achieve 100-300 KB per update. The project's <10 KB/day target requires going further: aggressive variable filtering, temporal downsampling, and delta encoding on top of region filtering.
 
 ### **5.2 Typical Data Consumption**
-| **Tool** | **Data Source** | **Resolution** | **Variables** | **Update Frequency** | **Daily Usage** |
-|----------|----------------|---------------|---------------|---------------------|----------------|
-| PredictWind | NOAA, ECMWF | 0.25°-0.5° | Full | 6h | 200-500 KB |
-| SailGrib WR | NOAA, Meteo France | 0.25°-1.0° | Full | 6h | 100-300 KB |
-| qtVlm | NOAA, OpenSkiron | 0.25° | Full | 6h | 500-1000 KB |
-| StormGeo AWT | Proprietary | 0.25° | Full | 6h | 500-1000+ KB |
+| **Tool** | **Data Source** | **Connection** | **Resolution** | **Variables** | **Daily Usage** |
+|----------|----------------|---------------|---------------|---------------|----------------|
+| PredictWind (Iridium GO!) | NOAA, ECMWF | Iridium | 0.25°-0.5° | Wind, pressure | ~150 KB/day |
+| PredictWind (GO! exec) | NOAA, ECMWF | Iridium | 0.25°-0.5° | Full | up to 500 KB/day |
+| SailGrib WR | NOAA, Meteo France | Various | 0.25°-1.0° | Selected | 100-300 KB/day |
+| qtVlm | NOAA, OpenSkiron | Various | 0.25° | Full | 500-1000 KB/day |
+| Saildocs (manual request) | GFS, WW3, etc. | Email (any) | 0.5°-2.5° | Selected | 2-30 KB per request |
+| StormGeo AWT | Proprietary | Various | 0.25° | Full | 500-1000+ KB/day |
+
+**Note:** Tools like PredictWind and SailGrib WR already use region filtering and variable selection. Their 100-500 KB/day figures represent filtered regional downloads, not full global files. Saildocs can achieve even lower data usage with manual request tuning, but requires the sailor to manually specify the region, variables, and time steps — it has no intelligent route-aware optimization.
 
 ---
 
@@ -348,8 +411,10 @@
 
 ### **7.2 Data Sources**
 - **NOAA NOMADS:** [https://nomads.ncep.noaa.gov](https://nomads.ncep.noaa.gov)
-- **ECMWF Data:** [https://data.ecmwf.int](https://data.ecmwf.int)
+- **NOMADS Grib Filter (server-side subsetting):** [https://nomads.ncep.noaa.gov/info.php?page=gribfilter](https://nomads.ncep.noaa.gov/info.php?page=gribfilter)
+- **ECMWF Open Data:** [https://data.ecmwf.int](https://data.ecmwf.int) (free since October 2025)
 - **Copernicus Climate Data Store:** [https://cds.climate.copernicus.eu](https://cds.climate.copernicus.eu)
+- **Copernicus Marine Service (CMEMS):** [https://marine.copernicus.eu](https://marine.copernicus.eu) (waves, currents)
 - **DWD Open Data:** [https://opendata.dwd.de](https://opendata.dwd.de)
 - **Meteo France Open Data:** [https://donneespubliques.meteofrance.fr](https://donneespubliques.meteofrance.fr)
 - **Infoclimat API:** [https://api.infoclimat.fr](https://api.infoclimat.fr)
@@ -360,12 +425,18 @@
 - **Inmarsat:** [https://www.inmarsat.com](https://www.inmarsat.com)
 - **Globalstar:** [https://www.globalstar.com](https://www.globalstar.com)
 
-### **7.4 Compression Libraries**
+### **7.4 Email-Based and HF Radio Services**
+- **Saildocs:** [http://www.saildocs.com](http://www.saildocs.com)
+- **Winlink:** [https://www.winlink.org](https://www.winlink.org)
+- **Sailmail:** [https://www.sailmail.com](https://www.sailmail.com)
+- **NOAA Weather Fax Schedules:** [https://www.weather.gov/media/marine/rfax.pdf](https://www.weather.gov/media/marine/rfax.pdf)
+
+### **7.5 Compression and GRIB Libraries**
 - **zstd:** [https://github.com/facebook/zstd](https://github.com/facebook/zstd)
 - **brotli:** [https://github.com/google/brotli](https://github.com/google/brotli)
-- **grib-api:** [https://github.com/wmo-im/grib-api](https://github.com/wmo-im/grib-api)
+- **ecCodes (GRIB/BUFR, replaces grib-api):** [https://github.com/ecmwf/eccodes](https://github.com/ecmwf/eccodes)
 - **cfgrib:** [https://github.com/ecmwf/cfgrib](https://github.com/ecmwf/cfgrib)
-- **pygrib:** [https://github.com/jkukon/pygrib](https://github.com/jkukon/pygrib)
+- **pygrib:** [https://github.com/jswhit/pygrib](https://github.com/jswhit/pygrib)
 
 ---
 

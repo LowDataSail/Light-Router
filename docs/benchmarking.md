@@ -18,14 +18,17 @@ Test on Raspberry Pi: inference time, memory usage, battery impact.
 
 ### Data Efficiency
 - Controlled comparison: same route, same weather data
-- Satellite simulation: throttle to Iridium (2-5 KB/s) and Starlink (50-100 KB/s) speeds
+- Satellite simulation: throttle to Iridium SBD (340 bytes/message), Iridium GO! (~150 KB/day typical), and Starlink (170-300 Mbps)
+- HF radio simulation: throttle to Winlink/Sailmail PACTOR speeds (100-2400 bits/s)
+- Saildocs comparison: compare automated route-aware requests vs. manual Saildocs requests
 - Offline performance: cache 7 days of forecasts, measure degradation
 
 ### Route Quality
-- Head-to-head: same conditions against PredictWind, SailGrib WR, qtVlm
+- Head-to-head: same conditions against PredictWind, SailGrib WR, qtVlm, OpenCPN Weather Routing
 - Historical replay: use archived race data, compare against actual winners
 - Synthetic scenarios: Gulf Stream crossing, Southern Ocean storms, Cape Horn, Doldrums, Iceberg Alley
 - Monte Carlo: 1000+ simulations with forecast noise (10%, 20%, 30% error)
+- Low-data comparison: compare route quality when data is limited to <10 KB/day vs. full data
 
 ### Extreme Event Prediction
 - Storm detection: historical storm tracks (NOAA, ECMWF)

@@ -12,9 +12,10 @@ Based on comprehensive literature review of meteorological information transfer 
 Based on current state of the art in [meteorological-info-transfer.md](./meteorological-info-transfer.md):
 
 1. **Data Source Optimization**
-   - Current tools download full global GRIB files (100-600 KB per update)
-   - **Improvement:** Use region filtering to download only route corridor data
-   - **Potential Savings:** 80-95% reduction (from 500 KB to 25-50 KB per update)
+   - Current tools download full global GRIB files (500-800 MB per full forecast run)
+   - **Improvement:** Use route-aware dynamic region filtering to download only route corridor data
+   - **Potential Savings:** 80-95% reduction vs. full global (from 500 MB to 25-50 KB per update)
+   - **Note:** Region filtering already exists in Saildocs and NOMADS Grib Filter. The project's contribution is route-aware dynamic selection, not the filtering itself.
 
 2. **Compression Enhancement**
    - Current: GRIB2 with simple packing (2-3:1 compression)
@@ -54,14 +55,17 @@ Based on current state of the art in [meteorological-info-transfer.md](./meteoro
    - Requires comparison with full-data routes
 
 ### **Feasibility Assessment**
-| **Technique** | **Savings** | **Feasibility** | **Implementation Complexity** |
-|--------------|------------|-----------------|-------------------------------|
-| Region Filtering | 80-95% | High | Low |
-| Variable Filtering | 50-80% | High | Low |
-| Temporal Downsampling | 50-80% | High | Medium |
-| Delta Encoding | 70-90% | High | Medium |
-| Custom Binary Encoding | 60-80% | Medium | High |
-| **Combined** | **90-99%** | **High** | **Medium** |
+| **Technique** | **Savings** | **Feasibility** | **Implementation Complexity** | **Existing Implementations** |
+|--------------|------------|-----------------|-------------------------------|-----------------------------|
+| Region Filtering | 80-95% | High | Low | Saildocs, NOMADS Grib Filter, PredictWind |
+| Variable Filtering | 50-80% | High | Low | Saildocs, PredictWind |
+| Temporal Downsampling | 50-80% | High | Medium | Partial in some tools |
+| Delta Encoding | 70-90% | Medium | Medium | Not used in sailing tools |
+| Custom Binary Encoding | 60-80% | Medium | High | Not used |
+| Ensemble Summary Compression | 80-90% vs. all members | Medium | High | Not used |
+| **Combined** | **90-99% vs. full global** | **High** | **Medium** | Partial (Saildocs achieves ~90% vs. full global) |
+
+> **Note on baseline:** The <10 KB/day target is a 10-50x improvement over the best existing filtered tools (Saildocs at 2-30 KB per manual request, PredictWind at ~150 KB/day automated), not a 1000x improvement over raw global downloads. The gap to close is in automation, intelligence, and delta encoding.
 
 ---
 

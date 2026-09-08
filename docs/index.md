@@ -11,6 +11,8 @@ Ultra-low data AI sailing router for circumnavigation.
 - [Project Description](PROJECT_DESCRIPTION.md)
 - [Objectives](objectives.md)
 - [Literature Review](literature-review.md)
+- [Meteorological Information Transfer](meteorological-info-transfer.md)
+- [Routing Algorithms](routing-algorithms.md)
 - [Benchmarking](benchmarking.md)
 - [Market Positioning](market-positioning.md)
 - [Contributing](CONTRIBUTING.md)

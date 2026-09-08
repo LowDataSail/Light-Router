@@ -13,7 +13,7 @@ Develop a sailing router that operates with **<10 KB/day** data consumption, mak
 - Temporal downsampling (lower resolution for distant forecasts)
 - Predictive caching (pre-fetch likely needed data)
 
-**Target:** 100-1000x reduction compared to existing solutions (1-10 MB/day)
+**Target:** 10-50x reduction compared to best existing filtered tools (Saildocs at ~30 KB/request, PredictWind at ~150 KB/day); 1000x+ reduction vs. raw global GRIB downloads
 
 ---
 
@@ -53,18 +53,18 @@ Build robust prediction models to identify and avoid dangerous weather events du
 ├─────────────────┬─────────────────┬─────────┤
 │  Data Pipeline   │ Routing Engine  │ AI Layer │
 ├─────────────────┼─────────────────┼─────────┤
-│ - Infoclimat API │ - Isochrone     │ - Forecast│
-│ - Delta Encoding │   Algorithm     │   Error  │
-│ - Region Filter  │ - Hierarchical  │   Modeling│
-│ - Cache          │   A*            │ - Extreme│
-│                 │ - Incremental   │   Event  │
-│                 │   Updates       │   Detection│
+│ - Multi-source     │ - Isochrone     │ - Forecast│
+│   Data Pipeline    │   Algorithm     │   Error  │
+│ - Delta Encoding   │ - Hierarchical  │   Modeling│
+│ - Region Filter    │   A*            │ - Extreme│
+│ - Cache            │ - Incremental   │   Event  │
+│                    │   Updates       │   Detection│
 └─────────────────┴─────────────────┴─────────┘
 ```
 
 ### **Data Pipeline**
-- **Input:** Infoclimat GRIB2 weather data (wind, waves, currents, pressure)
-- **Processing:** Delta encoding, region filtering, temporal downsampling
+- **Input:** Weather data from multiple sources (NOAA GFS, ECMWF IFS, CMEMS for waves/currents; delivered via Saildocs, NOMADS Grib Filter, or direct HTTP)
+- **Processing:** Delta encoding, route-aware region filtering, temporal downsampling
 - **Output:** Optimized weather data for routing (<10 KB/day)
 
 ### **Routing Engine**
@@ -95,8 +95,8 @@ Build robust prediction models to identify and avoid dangerous weather events du
 ## **🧪 Validation Strategy**
 
 ### **Platforms**
-1. **Freewinds.world** - Primary showcase (Golden Globe Race 2026 virtual race)
-2. **qtVlm** - Open-source integration for offline testing
+1. **Virtual sailing platforms** - Potential showcase via virtual race simulations
+2. **OpenCPN** - Open source integration for community testing
 3. **Custom Simulator** - Full control for edge cases
 
 ### **Methodology**
@@ -107,29 +107,31 @@ Build robust prediction models to identify and avoid dangerous weather events du
 
 ---
 
-## **🤝 Partnerships**
+## **🤝 Potential Collaborations**
 
-### **Infoclimat**
-- **Role:** Primary weather data provider
-- **Data:** GRIB2 files, wave models, real-time forecasts
-- **Status:** Partnership established
+### **Weather Data Sources**
+- **NOAA NOMADS:** Free GFS data with server-side Grib Filter subsetting
+- **ECMWF Open Data:** Free 9 km IFS forecasts since October 2025
+- **Copernicus Marine Service (CMEMS):** Wave and current data
+- **Saildocs:** Email-based GRIB delivery for low-bandwidth scenarios
+- **Infoclimat:** Potential additional source (not yet contacted)
 
-### **Freewinds.world**
-- **Role:** Primary testing and showcase platform
-- **Platform:** Golden Globe Race 2026 virtual race
-- **Status:** Registration submitted
+### **Open Source Community**
+- **libweatherrouting:** [https://github.com/dakk/libweatherrouting](https://github.com/dakk/libweatherrouting) — Python routing library
+- **OpenCPN Weather Routing:** [https://opencpn.org/OpenCPN/plugins/weatherroute.html](https://opencpn.org/OpenCPN/plugins/weatherroute.html) — Open source isochrone routing
+- **SIMROUTE:** [https://github.com/ManelGrifoll/SIMROUTE](https://github.com/ManelGrifoll/SIMROUTE) — A* routing with CMEMS data
 
 ---
 
 ## **📅 Roadmap**
 
 ### **Phase 1: Foundation**
-- Set up Infoclimat API access
-- Implement data pipeline (delta encoding, region filtering)
+- Set up data access (NOAA NOMADS, ECMWF open data, Saildocs)
+- Implement data pipeline (delta encoding, route-aware region filtering)
 - Develop baseline routing engine
 
 ### **Phase 2: Core Features**
-- Integrate Infoclimat data
+- Integrate weather data sources (NOAA, ECMWF, CMEMS)
 - Implement safety constraints
 - Develop extreme event detection
 
@@ -139,26 +141,28 @@ Build robust prediction models to identify and avoid dangerous weather events du
 - Validate with real-world testing
 
 ### **Phase 4: Showcase**
-- Deploy on Freewinds.world
+- Deploy on virtual sailing platforms
 - Publish benchmark results
 - Engage sailing community
 
 ---
 
 ## **📚 Additional Documentation**
-
-- [Technical Architecture](ARCHITECTURE.md)
-- [Benchmarking Methodology](BENCHMARKING.md)
-- [API Documentation](API.md)
-- [User Guide](USER_GUIDE.md)
+- [Objectives](objectives.md)
+- [Literature Review](literature-review.md)
+- [Meteorological Information Transfer](meteorological-info-transfer.md)
+- [Routing Algorithms](routing-algorithms.md)
+- [Benchmarking Methodology](benchmarking.md)
+- [Market Positioning](market-positioning.md)
 
 ---
 
 ## **🔗 Related Resources**
-
-- [Infoclimat](https://www.infoclimat.fr)
-- [Freewinds.world](https://freewinds.world)
-- [Golden Globe Race 2026](https://goldengloberace.com)
+- [NOAA NOMADS](https://nomads.ncep.noaa.gov) — Free weather data
+- [ECMWF Open Data](https://data.ecmwf.int) — Free since October 2025
+- [Copernicus Marine Service](https://marine.copernicus.eu) — Wave and current data
+- [Saildocs](http://www.saildocs.com) — Email-based GRIB service
+- [Golden Globe Race 2026](https://goldengloberace.com) — Starts September 6, 2026
 
 ---
 

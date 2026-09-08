@@ -9,36 +9,54 @@
 ### **1.1 Deterministic Algorithms**
 
 #### **Isochrone Method**
-- **Concept:** Calculate lines of equal time (isochrones) from the starting point, expanding outward until the destination is reached.
+- **Concept:** Calculate lines of equal time (isochrones) from the starting point, expanding outward until the destination is reached. Each isochrone represents all positions reachable in the same elapsed time, given the forecast wind/current and the boat's polar performance.
 - **Complexity:** O(n²) to O(n³) depending on implementation
 - **Accuracy:** Medium-High
 - **Speed:** Medium
 - **Memory:** Medium
 
+**Mathematical Foundation:**
+
+The isochrone method is a time-stepped dynamic programming approach. For each time step Δt, the next isochrone is constructed from the current one:
+
+1. **Position update** — For each point on the current isochrone, enumerate candidate headings ψ and compute the reachable position:
+   - x_new = x_old + v(θ, w) · Δt · cos(ψ)
+   - y_new = y_old + v(θ, w) · Δt · sin(ψ)
+   - where v(θ, w) is the boat speed from the polar diagram at True Wind Angle θ and True Wind Speed w
+
+2. **Cost assignment** — Each sub-route receives a cost (time, fuel, or weighted multi-objective including safety/comfort penalties)
+
+3. **Pruning** — Points on the new isochrone that are dominated (another point reaches the same angular sector in less time) are pruned to control combinatorial explosion
+
+4. **Iteration** — Repeat until the destination is reached; backtrack the minimum-cost path
+
+**Key sailing concepts:**
+- **Polar diagram:** Tabulates boat speed as a function of True Wind Angle (TWA) and True Wind Speed (TWS). Defines the vessel's performance envelope. Source: [ORC VPP polars](https://www.boatpolars.com/)
+- **VMG (Velocity Made Good):** The component of boat speed in the direction of the destination: VMG = v · cos(angle_to_target). The optimal TWA for VMG is where the polar curve is furthest forward (upwind, ~37-45°) or furthest aft (downwind, ~145-150°)
+- **TWA / TWD:** True Wind Angle (angle between heading and true wind) and True Wind Direction (direction wind blows from). Routing selects TWA relative to TWD to maximize VMG
+
 **Implementation:**
-- **libweatherrouting:** [https://github.com/WeatherRouting/libweatherrouting](https://github.com/WeatherRouting/libweatherrouting)
-- **qtVlm:** [https://www.virtual-winds.org/](https://www.virtual-winds.org/)
+- **libweatherrouting (Python):** [https://github.com/dakk/libweatherrouting](https://github.com/dakk/libweatherrouting) — Docs: [https://dakk.github.io/libweatherrouting/](https://dakk.github.io/libweatherrouting/)
+- **qtVlm (C++/Qt):** [https://sourceforge.net/projects/qtvlm/](https://sourceforge.net/projects/qtvlm/) — Free but proprietary
+- **OpenCPN Weather Routing plugin:** [https://opencpn.org/OpenCPN/plugins/weatherroute.html](https://opencpn.org/OpenCPN/plugins/weatherroute.html) — Open source, isochrone-based
 - **SailGrib WR:** [https://www.sailgrib.com](https://www.sailgrib.com)
 
 **Strengths:**
-- Simple to understand and implement
-- Works well for most sailing conditions
-- Handles wind and current data effectively
+- The standard algorithm for sailing routing; used by virtually all production tools
+- Naturally handles wind-dependent boat speed via polar diagrams
+- Handles time-dependent weather (forecasts change at each time step)
 
 **Weaknesses:**
-- Computationally expensive for high resolution
-- No uncertainty handling
-- No multi-objective optimization
-- No AI enhancement
-
-**Mathematical Foundation:**
-- Based on Dijkstra's algorithm or its variants
-- Uses polar performance data to calculate boat speed at different wind angles
-- Expands isochrones based on time to reach each point
+- Computationally expensive for high resolution (pruning is critical)
+- No inherent uncertainty handling (deterministic forecasts only)
+- Multi-objective optimization requires custom cost function design
+- Pruning can discard globally optimal paths (angular sector pruning is a heuristic)
 
 **References:**
-- **Original Paper:** "Isochrone Method for Optimal Routing" (not publicly available, but widely cited in maritime literature)
-- **libweatherrouting Docs:** [https://github.com/WeatherRouting/libweatherrouting/blob/master/README.md](https://github.com/WeatherRouting/libweatherrouting/blob/master/README.md)
+- **Strategies to improve the isochrone algorithm for ship voyage optimisation** (2024), Chalmers University: [https://www.tandfonline.com/doi/full/10.1080/17445302.2024.2329011](https://www.tandfonline.com/doi/full/10.1080/17445302.2024.2329011)
+- **3D Modified Isochrone (3DMI) method:** [https://www.researchgate.net/publication/267621767](https://www.researchgate.net/publication/267621767)
+- **Benchmark study of five optimization algorithms for weather routing:** [https://files01.core.ac.uk/download/pdf/289287244.pdf](https://files01.core.ac.uk/download/pdf/289287244.pdf)
+- **LuckGrib routing documentation (isochrones explained):** [https://routing.luckgrib.com/intro/isochrones/index.html](https://routing.luckgrib.com/intro/isochrones/index.html)
 
 ---
 
@@ -106,7 +124,7 @@
 - **Memory:** High
 
 **Implementation:**
-- **Academic research:** Southampton University [https://journals.mriindia.com/index.php/ijacte/article/view/2601](https://journals.mriindia.com/index.php/ijacte/article/view/2601)
+- **Academic research:** Various proposals in maritime routing literature
 - **Open-source:** [https://github.com/pbharrin/mcts](https://github.com/pbharrin/mcts) (Python implementation)
 
 **Strengths:**
@@ -122,7 +140,6 @@
 **References:**
 - **Original Paper:** Rémi Coulom (2006) - "Efficient Selectivity and Backup Operators in Monte-Carlo Tree Search" [https://hal.inria.fr/inria-00118122/document](https://hal.inria.fr/inria-00118122/document)
 - **Survey:** Cameron Browne et al. (2012) - "A Survey of Monte Carlo Tree Search Methods" [https://arxiv.org/abs/1204.2652](https://arxiv.org/abs/1204.2652)
-- **Maritime Application:** [https://journals.mriindia.com/index.php/ijacte/article/view/2601](https://journals.mriindia.com/index.php/ijacte/article/view/2601)
 
 ---
 
@@ -153,7 +170,40 @@
 
 ---
 
-### **1.3 Heuristic Algorithms**
+#### **Ensemble-Based Probabilistic Routing**
+- **Concept:** Instead of using a single deterministic forecast, use an ensemble of forecasts (20-50+ members with perturbed initial conditions) to compute a probability distribution of outcomes for each route. Select routes that are robust across the ensemble, not just optimal for one forecast.
+- **Complexity:** O(E × algorithm_cost) where E = number of ensemble members
+- **Accuracy:** High (quantifies and exploits uncertainty)
+- **Speed:** Slow (must run routing for multiple forecast scenarios)
+- **Memory:** High
+
+**How it works:**
+1. Download ensemble forecast (e.g., NOAA GEFS with 31 members, ECMWF ENS with 51 members)
+2. For each ensemble member, run the routing algorithm (isochrone, A*, etc.)
+3. Aggregate results: compute the distribution of arrival times, fuel consumption, and safety risk across all members
+4. Select the route that optimizes expected value while minimizing variance (robust optimization)
+
+**Data efficiency implication:** Ensemble forecasts are larger than deterministic forecasts (E× more data), which creates tension with the low-data goal. However, ensemble probability information can be compressed: instead of downloading all members, download the ensemble mean, spread, and key percentile fields — potentially achievable in a few KB for a route corridor.
+
+**Implementation:**
+- **NOAA GEFS:** 31 members, 0.5° resolution, 16-day forecast [https://nomads.ncep.noaa.gov](https://nomads.ncep.noaa.gov)
+- **ECMWF ENS:** 51 members, ~18 km resolution, 15-day forecast (open data since Oct 2025)
+- **Research:** "A Comprehensive Approach to Account for Weather Uncertainties in Ship Route Optimization" [https://doi.org/10.3390/jmse9121434](https://doi.org/10.3390/jmse9121434)
+
+**Strengths:**
+- Directly addresses forecast uncertainty — the dominant source of routing error
+- Enables risk-aware routing (e.g., avoid routes with high probability of storm encounter)
+- More realistic than deterministic routing for long voyages (>48h)
+
+**Weaknesses:**
+- E× more computation (or requires clever sampling)
+- Ensemble data is E× larger (mitigated by downloading summary statistics)
+- More complex decision-making framework
+
+**References:**
+- **Ocean Engineering (2022):** "Uncertainty-informed ship voyage optimization" [https://www.sciencedirect.com/science/article/abs/pii/S0029801822021709](https://www.sciencedirect.com/science/article/abs/pii/S0029801822021709)
+- **JMSE (2021):** "A Comprehensive Approach to Account for Weather Uncertainties" [https://doi.org/10.3390/jmse9121434](https://doi.org/10.3390/jmse9121434)
+- **JMSE (2025):** "Anomalous Behavior in Weather Forecast Uncertainty" [https://www.mdpi.com/2077-1312/13/6/1185](https://www.mdpi.com/2077-1312/13/6/1185)
 
 #### **Genetic Algorithms**
 - **Concept:** Evolve a population of routes using selection, crossover, and mutation operators.
@@ -249,7 +299,7 @@
 - **Memory:** Very High
 
 **Implementation:**
-- **MDPI Research:** [https://www.mdpi.com/2077-1312/13/5/902](https://www.mdpi.com/2077-1312/13/5/902)
+- **MDPI Research (2025):** "Marine Voyage Optimization and Weather Routing with Deep Reinforcement Learning" [https://www.mdpi.com/2077-1312/13/5/902](https://www.mdpi.com/2077-1312/13/5/902) — uses real AIS data and weather info, Actor-Critic approach
 - **Frameworks:**
   - **Stable Baselines3:** [https://github.com/DLR-RM/stable-baselines3](https://github.com/DLR-RM/stable-baselines3)
   - **RLlib:** [https://github.com/ray-project/ray](https://github.com/ray-project/ray)
@@ -263,11 +313,11 @@
 - Requires large amounts of training data
 - Computationally expensive to train
 - Black-box nature (difficult to interpret)
-- No real-world validation in maritime routing
+- No real-world validation in sailing routing (existing work focuses on commercial shipping)
 
 **References:**
-- **MDPI Paper (2024):** "Deep Reinforcement Learning for Maritime Routing Optimization" [https://www.mdpi.com/2077-1312/13/5/902](https://www.mdpi.com/2077-1312/13/5/902)
-- **Berkeley CMR:** "Utilizing AI for Maritime Transport Optimization" [https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/](https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/)
+- **Latinopoulos et al. (2025):** "Marine Voyage Optimization and Weather Routing with Deep Reinforcement Learning" JMSE 13(5), 902 [https://www.mdpi.com/2077-1312/13/5/902](https://www.mdpi.com/2077-1312/13/5/902)
+- **CMR Berkeley (2024):** "Utilizing AI for Maritime Transport Optimization" — a business overview of AI in maritime shipping (not a routing algorithm paper) [https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/](https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/)
 
 ---
 
@@ -279,9 +329,9 @@
 - **Memory:** High
 
 **Implementation:**
-- **MIT Research:** [https://dl.acm.org/doi/fullHtml/10.1145/3581792.3581803](https://dl.acm.org/doi/fullHtml/10.1145/3581792.3581803)
+- **Anderson et al. (2022):** "Route Optimization for Sailing Vessels using Artificial Intelligence Techniques" — 5th Intl. Conf. on Computational Intelligence and Intelligent Systems [https://dl.acm.org/doi/10.1145/3581792.3581803](https://dl.acm.org/doi/10.1145/3581792.3581803)
 - **Frameworks:**
-  - **Imitation Learning Library:** [https://github.com/HumanCompatibleAI/imitation-learning](https://github.com/HumanCompatibleAI/imitation-learning)
+  - **Imitation Learning Library:** [https://github.com/HumanCompatibleAI/imitation](https://github.com/HumanCompatibleAI/imitation)
 
 **Strengths:**
 - Can leverage existing expert routes
@@ -292,10 +342,10 @@
 - Requires high-quality demonstration data
 - Limited by the quality of demonstrations
 - May not generalize beyond training distribution
-- No production implementations in maritime routing
+- No production implementations in sailing routing
 
 **References:**
-- **MIT Paper (2023):** "Imitation Learning for Autonomous Sailing" [https://dl.acm.org/doi/fullHtml/10.1145/3581792.3581803](https://dl.acm.org/doi/fullHtml/10.1145/3581792.3581803)
+- **Anderson, Sithungu, Ehlers (2022):** "Route Optimization for Sailing Vessels using Artificial Intelligence Techniques" [https://dl.acm.org/doi/10.1145/3581792.3581803](https://dl.acm.org/doi/10.1145/3581792.3581803)
 
 ---
 
@@ -335,7 +385,7 @@
 - **Memory:** Medium
 
 **Implementation:**
-- **Berkeley CMR:** Hybrid RL+Graph approach [https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/](https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/)
+- **No confirmed maritime routing implementations found in literature as of 2025**
 - **Frameworks:**
   - **PyTorch Geometric:** [https://github.com/pyg-team/pytorch_geometric](https://github.com/pyg-team/pytorch_geometric)
   - **DGL (Deep Graph Library):** [https://github.com/dmlc/dgl](https://github.com/dmlc/dgl)
@@ -524,7 +574,7 @@
 ## **🔗 7. Key References**
 
 ### **7.1 Algorithm References**
-- **Isochrone Method:** [https://github.com/WeatherRouting/libweatherrouting](https://github.com/WeatherRouting/libweatherrouting)
+- **Isochrone Method:** [https://github.com/dakk/libweatherrouting](https://github.com/dakk/libweatherrouting)
 - **Dijkstra's Algorithm:** [https://www.cs.utexas.edu/users/EWD/transcriptions/EWD01xx/EWD136.html](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD01xx/EWD136.html)
 - **A* Algorithm:** [https://ieeexplore.ieee.org/document/4082128](https://ieeexplore.ieee.org/document/4082128)
 - **MCTS:** [https://hal.inria.fr/inria-00118122/document](https://hal.inria.fr/inria-00118122/document)
@@ -534,19 +584,23 @@
 - **ACO:** [https://www.sciencedirect.com/science/article/pii/0925231296000359](https://www.sciencedirect.com/science/article/pii/0925231296000359)
 
 ### **7.2 AI/ML References**
-- **Deep RL (MDPI):** [https://www.mdpi.com/2077-1312/13/5/902](https://www.mdpi.com/2077-1312/13/5/902)
-- **Berkeley CMR:** [https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/](https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/)
-- **MIT Imitation Learning:** [https://dl.acm.org/doi/fullHtml/10.1145/3581792.3581803](https://dl.acm.org/doi/fullHtml/10.1145/3581792.3581803)
+- **Deep RL (Latinopoulos et al., 2025):** [https://www.mdpi.com/2077-1312/13/5/902](https://www.mdpi.com/2077-1312/13/5/902)
+- **CMR Berkeley (2024):** Business overview, not a routing algorithm [https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/](https://cmr.berkeley.edu/2024/12/utilizing-ai-for-maritime-transport-optimization/)
+- **Imitation Learning (Anderson et al., 2022):** [https://dl.acm.org/doi/10.1145/3581792.3581803](https://dl.acm.org/doi/10.1145/3581792.3581803)
 - **Transformers:** [https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
 - **GNNs:** [https://pytorch-geometric.readthedocs.io](https://pytorch-geometric.readthedocs.io)
+- **Ensemble routing:** [https://doi.org/10.3390/jmse9121434](https://doi.org/10.3390/jmse9121434)
 
 ### **7.3 Maritime-Specific References**
-- **libweatherrouting:** [https://github.com/WeatherRouting/libweatherrouting](https://github.com/WeatherRouting/libweatherrouting)
-- **qtVlm:** [https://www.virtual-winds.org/](https://www.virtual-winds.org/)
+- **libweatherrouting (Python):** [https://github.com/dakk/libweatherrouting](https://github.com/dakk/libweatherrouting)
+- **GWeatherRouting (Python/GTK):** [https://github.com/dakk/gweatherrouting](https://github.com/dakk/gweatherrouting)
+- **qtVlm (free, proprietary):** [https://sourceforge.net/projects/qtvlm/](https://sourceforge.net/projects/qtvlm/)
+- **OpenCPN Weather Routing plugin (open source):** [https://opencpn.org/OpenCPN/plugins/weatherroute.html](https://opencpn.org/OpenCPN/plugins/weatherroute.html)
+- **SIMROUTE (open source, A* + CMEMS):** [https://github.com/ManelGrifoll/SIMROUTE](https://github.com/ManelGrifoll/SIMROUTE)
 - **SailGrib WR:** [https://www.sailgrib.com](https://www.sailgrib.com)
 - **PredictWind:** [https://www.predictwind.com](https://www.predictwind.com)
 - **StormGeo AWT:** [https://www.stormgeo.com](https://www.stormgeo.com)
-- **MCTS for Maritime:** [https://journals.mriindia.com/index.php/ijacte/article/view/2601](https://journals.mriindia.com/index.php/ijacte/article/view/2601)
+- **Isochrone improvement (Chalmers, 2024):** [https://www.tandfonline.com/doi/full/10.1080/17445302.2024.2329011](https://www.tandfonline.com/doi/full/10.1080/17445302.2024.2329011)
 
 ---
 
@@ -555,12 +609,15 @@
 ### **8.1 Data Efficiency Improvements**
 | **Opportunity** | **Current State** | **Potential Improvement** | **Feasibility** | **Challenge** |
 |---------------|------------------|--------------------------|-----------------|---------------|
-| Delta Encoding | Not used | 70-90% reduction | High | Stateful connection |
-| Region Filtering | Partial | 80-95% reduction | High | Dynamic adjustment |
-| Temporal Downsampling | Not used | 50-80% reduction | High | Accuracy tradeoff |
-| Variable Filtering | Partial | 50-80% reduction | High | Determine needed variables |
-| Custom Binary Encoding | Not used | 60-80% reduction | Medium | Design encoding |
-| **Combined** | N/A | **90-99% reduction** | High | Integration complexity |
+| Region Filtering | Already exists (Saildocs, NOMADS Grib Filter, SailGrib WR) | Route-aware dynamic selection | High | Dynamic corridor prediction |
+| Variable Filtering | Already exists (Saildocs, PredictWind) | AI-driven variable selection | High | Determining needed variables |
+| Temporal Downsampling | Partial (some tools) | Adaptive resolution based on forecast horizon | High | Accuracy tradeoff |
+| Delta Encoding | Not used in sailing tools | 70-90% reduction for sequential updates | Medium | Stateful connection over satellite |
+| Custom Binary Encoding | Not used | 60-80% on top of GRIB compression | Medium | Encoding design, compatibility |
+| Ensemble Summary Compression | Not used | Download mean/spread instead of all members | Medium | Loss of tail information |
+| **Combined** | N/A | **90-99% reduction vs. full global** | High | Integration complexity |
+
+> **Note:** The baseline for comparison matters. Full global GRIB downloads are 500-800 MB. Tools like Saildocs and PredictWind already achieve 100-500 KB/day through region and variable filtering. The project's <10 KB/day target is a 10-50x improvement over the best existing filtered tools, not a 1000x improvement over raw global downloads.
 
 ### **8.2 Algorithm Improvements**
 | **Opportunity** | **Current State** | **Potential Improvement** | **Feasibility** | **Challenge** |

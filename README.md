@@ -31,12 +31,11 @@ python src/main.py
 
 ```
 Light-Router/
-├── src/               # Core router
 ├── docs/              # Full documentation
-├── benchmarks/        # Performance tests
-├── configs/           # Configuration files
 └── requirements.txt   # Dependencies
 ```
+
+> Note: Source code, benchmarks, and configs directories will be added as the project develops.
 
 ---
 
@@ -44,13 +43,16 @@ Light-Router/
 
 For detailed information:
 - [Full Project Description](docs/PROJECT_DESCRIPTION.md)
+- [Literature Review](docs/literature-review.md)
+- [Weather Data Transfer](docs/meteorological-info-transfer.md)
+- [Routing Algorithms](docs/routing-algorithms.md)
 
 ---
 
-## **🤝 Partnerships**
+## **🤝 Potential Collaborations**
 
-- **Infoclimat** – Weather data provider
-- **Freewinds.world** – Primary testing platform
+- **Open source community** — libweatherrouting, OpenCPN Weather Routing, SIMROUTE
+- **Public data sources** — NOAA, ECMWF (open data since Oct 2025), Copernicus Marine Service
 
 ---
 
