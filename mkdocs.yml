@@ -1,11 +1,11 @@
 site_name: Light Router
 site_description: Ultra-low data AI sailing router with extreme event prediction for circumnavigation
-site_author: LowDataSail
-site_url: https://lowdatasail.github.io/Light-Router
+site_author: LowDataSailing
+site_url: https://lowdatasailing.github.io/Light-Router
 
 # Repository
-repo_name: LowDataSail/Light-Router
-repo_url: https://github.com/LowDataSail/Light-Router
+repo_name: LowDataSailing/Light-Router
+repo_url: https://github.com/LowDataSailing/Light-Router
 edit_uri: edit/master/docs/
 
 # Navigation
@@ -83,7 +83,7 @@ markdown_extensions:
   - pymdownx.magiclink:
       normalize_issue_symbols: true
       repo_url_shorthand: true
-      user: LowDataSail
+      user: LowDataSailing
       repo: Light-Router
   - pymdownx.mark
   - pymdownx.smartsymbols
@@ -115,8 +115,8 @@ plugins:
   # PDF export disabled (requires system libraries)
   # - with-pdf:
   #     enabled: true
-  #     author: LowDataSail
-  #     copyright: Copyright &copy; 2026 LowDataSail
+  #     author: LowDataSailing
+  #     copyright: Copyright &copy; 2026 LowDataSailing
   #     cover: true
   #     cover_title: Light Router Documentation
   #     cover_subtitle: Ultra-low data AI sailing router
@@ -133,11 +133,11 @@ extra_javascript:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/LowDataSail
+      link: https://github.com/LowDataSailing
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/LowDataSail
+      link: https://twitter.com/LowDataSailing
     - icon: fontawesome/solid/envelope
-      link: mailto:contact@lowdatasail.org
+      link: mailto:contact@lowdatasailing.org
 
 # Google Analytics
 # google_analytics:
@@ -146,5 +146,5 @@ extra:
 
 # Copyright
 copyright: |
-  &copy; 2026 <a href="https://github.com/LowDataSail" target="_blank" rel="noopener">LowDataSail</a> |
-  <a href="https://github.com/LowDataSail/Light-Router/blob/master/LICENSE" target="_blank" rel="noopener">MIT License</a>
+  &copy; 2026 <a href="https://github.com/LowDataSailing" target="_blank" rel="noopener">LowDataSailing</a> |
+  <a href="https://github.com/LowDataSailing/Light-Router/blob/master/LICENSE" target="_blank" rel="noopener">MIT License</a>

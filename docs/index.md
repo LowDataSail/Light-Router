@@ -20,7 +20,7 @@ Ultra-low data AI sailing router for circumnavigation.
 
 ## Quick Start
 ```bash
-git clone https://github.com/LowDataSail/Light-Router.git
+git clone https://github.com/LowDataSailing/Light-Router.git
 cd Light-Router
 pip install -r requirements.txt
 ```
@@ -29,5 +29,5 @@ pip install -r requirements.txt
 MIT License - [LICENSE](LICENSE)
 
 ## Links
-- [GitHub](https://github.com/LowDataSail/Light-Router)
-- [Organization](https://github.com/LowDataSail)
+- [GitHub](https://github.com/LowDataSailing/Light-Router)
+- [Organization](https://github.com/LowDataSailing)

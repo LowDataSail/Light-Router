@@ -171,4 +171,4 @@ Build robust prediction models to identify and avoid dangerous weather events du
 
 ---
 
-**© 2026 LowDataSail**
+**© 2026 LowDataSailing**

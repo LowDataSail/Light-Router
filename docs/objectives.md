@@ -158,6 +158,6 @@ Based on current state of the art in [routing-algorithms.md](./routing-algorithm
 
 ---
 
-**© 2026 LowDataSail**  
+**© 2026 LowDataSailing**  
 **Last Updated:** September 6, 2026  
 **Version:** 1.0

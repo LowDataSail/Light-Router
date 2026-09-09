@@ -1,4 +1,4 @@
-# About LowDataSail
+# About LowDataSailing
 
 Building data-efficient maritime navigation solutions.
 
@@ -12,6 +12,6 @@ Democratize advanced sailing navigation through AI-powered, ultra-low-data solut
 - Lilian Bosc: Founder, Lead Developer
 
 ## Contact
-- Email: contact@lowdatasail.org
-- GitHub: [LowDataSail](https://github.com/LowDataSail)
-- Repository: [Light-Router](https://github.com/LowDataSail/Light-Router)
+- Email: contact@lowdatasailing.org
+- GitHub: [LowDataSailing](https://github.com/LowDataSailing)
+- Repository: [Light-Router](https://github.com/LowDataSailing/Light-Router)

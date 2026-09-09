@@ -701,6 +701,6 @@ The isochrone method is a time-stepped dynamic programming approach. For each ti
 
 ---
 
-**© 2026 LowDataSail**  
+**© 2026 LowDataSailing**  
 **Last Updated:** September 6, 2026  
 **Version:** 1.0

@@ -15,7 +15,7 @@
 
 ```bash
 # Clone
- git clone https://github.com/LowDataSail/Light-Router.git
+ git clone https://github.com/LowDataSailing/Light-Router.git
  cd Light-Router
 
 # Install
@@ -41,7 +41,7 @@ Light-Router/
 
 ## **📚 Documentation**
 
-Full documentation is available at [https://lowdatasail.github.io/Light-Router/](https://lowdatasail.github.io/Light-Router/)
+Full documentation is available at [https://lowdatasailing.github.io/Light-Router/](https://lowdatasailing.github.io/Light-Router/)
 
 Key documents:
 - [Full Project Description](docs/PROJECT_DESCRIPTION.md)
@@ -62,4 +62,4 @@ Key documents:
 
 ## **📜 License**
 
-MIT © 2026 LowDataSail
+MIT © 2026 LowDataSailing

@@ -8,7 +8,7 @@
 
 ## Setup
 ```bash
-git clone https://github.com/LowDataSail/Light-Router.git
+git clone https://github.com/LowDataSailing/Light-Router.git
 cd Light-Router
 python -m venv venv
 source venv/bin/activate

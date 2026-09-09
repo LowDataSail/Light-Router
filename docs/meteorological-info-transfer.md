@@ -440,6 +440,6 @@ Sizes below are per single forecast time step unless otherwise noted. "Full" mea
 
 ---
 
-**© 2026 LowDataSail**  
+**© 2026 LowDataSailing**  
 **Last Updated:** September 6, 2026  
 **Version:** 1.0

@@ -14,7 +14,7 @@
 - Inappropriate professional conduct
 
 ## Reporting
-Report issues to: contact@lowdatasail.org
+Report issues to: contact@lowdatasailing.org
 
 ## Attribution
 Based on Contributor Covenant, version 1.4
