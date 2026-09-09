@@ -41,7 +41,9 @@ Light-Router/
 
 ## **📚 Documentation**
 
-For detailed information:
+Full documentation is available at [https://lowdatasail.github.io/Light-Router/](https://lowdatasail.github.io/Light-Router/)
+
+Key documents:
 - [Full Project Description](docs/PROJECT_DESCRIPTION.md)
 - [Literature Review](docs/literature-review.md)
 - [Weather Data Transfer](docs/meteorological-info-transfer.md)
