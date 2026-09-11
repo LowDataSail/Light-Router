@@ -20,6 +20,7 @@ nav:
       - Market Positioning: market-positioning.md
       - Meteorological Info Transfer: meteorological-info-transfer.md
       - Routing Algorithms: routing-algorithms.md
+      - Research Ideas: research-ideas.md
   - Development:
       - Contributing: CONTRIBUTING.md
       - Code of Conduct: CODE_OF_CONDUCT.md
